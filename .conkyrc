@@ -7,7 +7,7 @@ background no
 own_window yes
 own_window_hints below,skip_taskbar,undecorated,sticky
 own_window_transparent yes
-own_window_type normal
+own_window_type desktop
 
 # X font when Xft is disabled, you can pick one with program xfontsel
 #font 5x7
