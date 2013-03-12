@@ -1,0 +1,19 @@
+[color]
+	ui = auto
+[alias]
+	st = status
+	co = checkout
+	br = branch
+[merge]
+	tool = gvimdiff
+	conflictstyle = diff3
+[rerere]
+	enabled = true
+[core]
+	excludesfile = /home/dominich/.gitignore
+[diff]
+	external = gitvimdiff
+[pager]
+	diff =
+[push]
+	default = simple
