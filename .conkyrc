@@ -7,7 +7,7 @@ background no
 own_window yes
 own_window_hints below,skip_taskbar,undecorated,sticky
 own_window_transparent yes
-own_window_type normal
+own_window_type desktop
 
 # X font when Xft is disabled, you can pick one with program xfontsel
 #font 5x7
@@ -27,7 +27,7 @@ use_xft yes
 xftfont Andale Mono:size=10
 
 # Text alpha when using Xft
-xftalpha 0.8
+xftalpha 0.6
 
 # Print everything to console?
 # out_to_console no
@@ -45,7 +45,7 @@ total_run_times 0
 # Use double buffering (reduces flicker, may not work for everyone)
 double_buffer yes
 
-# Minimum size of text area
+# Size of text area
 minimum_size 150 5
 maximum_width 300
 
@@ -100,6 +100,9 @@ override_utf8_locale no
 # Add spaces to keep things from moving about?  This only affects certain objects.
 use_spacer left
 #Note: doesn't work in conky 1.2 =(
+
+lua_load .conky_drawbg.lua
+lua_draw_hook_pre draw_bg
 
 # Possible variables to be used:
 #
