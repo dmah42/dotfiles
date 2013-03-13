@@ -24,7 +24,7 @@ use_xft yes
 
 # Xft font when Xft is enabled
 #xftfont Bitstream Vera Sans Mono:size=8
-xftfont Andale Mono:size=8
+xftfont Andale Mono:size=10
 
 # Text alpha when using Xft
 xftalpha 0.8
@@ -47,7 +47,7 @@ double_buffer yes
 
 # Minimum size of text area
 minimum_size 150 5
-maximum_width 250
+maximum_width 300
 
 # Draw shades?
 draw_shades yes
@@ -295,15 +295,15 @@ ${color slate grey}Time ${alignr}${color }${time %Z, %H:%M:%S}
 ${color slate grey}Uptime ${alignr}${color }$uptime
 ${color slate grey}Kern ${alignr}${color }$kernel
 ${color slate grey}CPU ${alignr}${color } $cpu%
-${cpugraph 20,150 000000 ffffff}
+${cpugraph 20,180 000000 ffffff}
 ${color slate grey}Load ${alignr}${color }$loadavg
 ${color slate grey}Processes ${alignr}${color }$processes
 ${color slate grey}Running ${alignr}${color }$running_processes
 
 ${color slate grey}Mem ${color }$memperc% ${alignr}$mem / $memmax
-${membar 3,150}
+${membar 3,180}
 ${color slate grey}Swap ${color }$swapperc% ${alignr}$swap / $swapmax
-${swapbar 3,150}
+${swapbar 3,180}
 
 ${color slate grey}Highest CPU
 ${color #ddaa00} ${top name 1}${alignr}${top cpu 1}
@@ -319,17 +319,17 @@ ${color lightgrey} ${top_mem name 4}${alignr}${top_mem mem 4}
 
 ${color slate grey}DISK
 ${color slate grey}/ ${alignr}${color }${fs_free /} / ${fs_size /}
-${fs_bar 3,150 /}
+${fs_bar 3,180 /}
 ${color slate grey}google ${alignr}${color }${fs_free /usr/local/google} / ${fs_size /usr/local/google}
-${fs_bar 3,150 /usr/local/google}
+${fs_bar 3,180 /usr/local/google}
 ${color slate grey}~ ${alignr}${color }${fs_free /home/dominich} / ${fs_size /home/dominich}
-${fs_bar 3,150 /home/dominich}
+${fs_bar 3,180 /home/dominich}
 
 ${color slate grey}NET
 ${color slate grey}Up ${alignr}${color }${upspeed eth0}${color}
-${upspeedgraph eth0 20,150 000000 ffffff}
+${upspeedgraph eth0 20,180 000000 ffffff}
 ${color slate grey}Down ${alignr}${color }${downspeed eth0}${color}
-${downspeedgraph eth0 20,150 000000 ffffff}
+${downspeedgraph eth0 20,180 000000 ffffff}
 
 #${color slate grey}VOLUME ${alignr}${color}${mixer} %${color}
 
