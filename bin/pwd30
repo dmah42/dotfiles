@@ -1,0 +1,8 @@
+#!/bin/bash
+
+v_wd=$(pwd)
+if [ ${#v_wd} -gt 30 ] ; then
+  echo ${v_wd} | sed -e 's!.*\(........................\)! ...\1!'
+else
+  echo ${v_wd}
+fi

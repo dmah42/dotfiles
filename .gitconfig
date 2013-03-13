@@ -10,10 +10,13 @@
 [rerere]
 	enabled = true
 [core]
-	excludesfile = /home/dominich/.gitignore
+	excludesfile = ~/.gitignore
+	editor = vim
 [diff]
 	external = gitvimdiff
 [pager]
 	diff =
 [push]
 	default = simple
+[user]
+	name = Dominic Hamon
