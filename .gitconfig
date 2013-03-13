@@ -1,5 +1,7 @@
 [color]
 	ui = auto
+[user]
+	name = Dominic Hamon
 [alias]
 	st = status
 	co = checkout
