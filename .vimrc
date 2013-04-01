@@ -62,9 +62,7 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
-augroup filetypedetect
-  au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
-augroup END
+au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
