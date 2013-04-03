@@ -1,0 +1,76 @@
+# Loosely based on
+# https://wiki.corp.google.com/twiki/bin/view/Main/HwOpsDocsScreenUsageAndTechnique
+
+defscrollback 5000
+
+vbell off
+
+# detach on hangup
+autodetach on
+
+# don't display the copyright page
+startup_message off
+
+# make the shell in every window a login shell
+#shell -$SHELL
+
+hardstatus on
+hardstatus alwayslastline
+
+# Fancy Google logo:
+#hardstatus string "%{wk}[%{B}G%{R}o%{Y}o%{B}g%{G}l%{R}e%{w}]%{.d}"
+
+# greyscale window list with datetime at right
+#hardstatus string '%{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
+
+# colored window list with system stats
+hardstatus string "%{wk}%{kW}|%{-} {%{Yk}%D %m-%d-%y%{-} %{Wk}%C%a%{-}} {%{Gk}%H%{-} %l} %{kW}|%{-}%{wb} %-w %{Wr}[%n %t]%{-} %+w%=%{kW}|%{-}"
+
+# another take on hardstatus
+#hardstatus string "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H(%l)-%{kc}%d %M%{d}-%c "
+
+# Denilson Sa:
+#hardstatus string "%{Wb} %-Lw%{Wg}[%n%f %t]%{-}%+Lw %=%{Wk} @%{Gk}%H%{-} %c"
+
+
+# Magic below! Not understood, just copied these lines from HwOpsDocsScreenUsageAndTechnique
+
+# Enabling scrolling with the mouse wheel
+# Then, in the Gnome Terminal, go to Edit -> Profile Settings -> Scrolling, and
+# uncheck "Use keystrokes to scroll on alternate screen".
+# Also from: http://aperiodic.net/screen/faq
+termcapinfo xterm* ti@:te@
+
+# 256-color mode
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
+
+# End of Magic!
+
+
+# Following lines from example of a user's .screenrc file
+#################
+##
+## keybindings
+##
+#
+##remove some stupid / dangerous key bindings
+#bind k
+#bind ^k
+#bind .
+#bind ^\
+#bind \\
+#bind ^h
+#bind h
+##make them better
+#bind 'K' kill
+#bind 'I' login on
+#bind 'O' login off
+#bind '}' history
+#
+## Yet another hack:
+## Prepend/append register [/] to the paste if ^a^] is pressed.
+## This lets me have autoindent mode in vi.
+#register [ "\033:se noai\015a"
+#register ] "\033:se ai\015a"
+#bind ^] paste [.]

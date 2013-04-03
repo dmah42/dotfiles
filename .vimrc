@@ -6,6 +6,7 @@ set nu
 set incsearch
 set hlsearch
 set noswapfile
+set hidden
 set tags=./tags;
 
 set hidden
@@ -37,6 +38,9 @@ au InsertEnter * hi statusline term=reverse ctermbg=6 gui=undercurl guisp=Magent
 au InsertLeave * hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
 hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
 
+let g:ycm_key_select_completion = '<C-n>'
+let g:ycm_key_select_completion = '<c-p>'
+
 " Default to make for make
 "set makeprg=make
 
@@ -64,9 +68,7 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
-augroup filetypedetect
-  au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
-augroup END
+au! WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
