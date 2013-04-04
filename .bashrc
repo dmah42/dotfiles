@@ -1,5 +1,6 @@
 
 PS1="\[\033[38m\]\h:\[\033[01;34m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
+PS1="\[\033[38m\]\h:\[\e[38;05;38m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
