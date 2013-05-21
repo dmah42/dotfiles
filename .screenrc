@@ -12,7 +12,7 @@ autodetach on
 startup_message off
 
 # make the shell in every window a login shell
-#shell -$SHELL
+shell -$SHELL
 
 hardstatus on
 hardstatus alwayslastline
@@ -24,7 +24,7 @@ hardstatus alwayslastline
 #hardstatus string '%{= dK}%-Lw%{= dW}%50>%n%f* %t%{= dK}%+Lw%< %{= kG}%-=%D %d %M %Y %c:%s%{-}'
 
 # colored window list with system stats
-hardstatus string "%{wk}%{kW}|%{-} {%{Yk}%D %m-%d-%y%{-} %{Wk}%C%a%{-}} {%{Gk}%H%{-} %l} %{kW}|%{-}%{wb} %-w %{Wr}[%n %t]%{-} %+w%=%{kW}|%{-}"
+hardstatus string "%{wk}%{kW}|%{-} [%{Yk}%D %m-%d-%y%{-} %{Wk}%C%a%{-}] [%{Gk}%H%{-} %l] %{kW}|%{-}%{wb} %-w %{Wr}[%n %t]%{-} %+w%=%{kW}|%{-}"
 
 # another take on hardstatus
 #hardstatus string "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H(%l)-%{kc}%d %M%{d}-%c "
