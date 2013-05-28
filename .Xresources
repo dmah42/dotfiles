@@ -1,0 +1,15 @@
+! Xft
+!Xft.dpi:	72
+Xft.antialias:	true
+Xft.hinting:	true
+Xft.rgba:	rgb
+Xft.hintstyle:	hintfull
+
+! xterm
+xterm*faceName: Andale Mono
+xterm*faceSize: 9
+xterm*boldMode:	false
+xterm*allowBoldFonts: false
+xterm*utf8:	2
+xterm*saveLines:5000
+
