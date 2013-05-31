@@ -19,6 +19,7 @@
 [pager]
 	diff =
 [push]
-	default = simple
+#	default = simple
 [user]
 	name = Dominic Hamon
+	email = dma+github@stripysock.com
