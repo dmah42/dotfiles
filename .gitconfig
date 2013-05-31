@@ -6,6 +6,7 @@
 	st = status
 	co = checkout
 	br = branch
+	svn-diff = !git-svn-diff.sh
 [merge]
 	tool = gvimdiff
 	conflictstyle = diff3

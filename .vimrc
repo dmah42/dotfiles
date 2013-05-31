@@ -2,6 +2,12 @@
 vmap <Tab> >gv
 vmap <S-Tab> <LT>gv
 
+" better window switching
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
 set nu
 set incsearch
 set hlsearch
@@ -18,7 +24,9 @@ if &diff
   colorscheme murphy
 endif
 au BufRead,BufNewFile *.wiki colorscheme koehler
+
 syntax on
+filetype plugin indent on
 
 set foldmethod=syntax
 set foldlevelstart=99
@@ -42,7 +50,8 @@ let g:ycm_key_select_completion = '<C-n>'
 let g:ycm_key_select_completion = '<c-p>'
 
 " Default to make for make
-"set makeprg=make
+set makeprg=make
+au filetype dart setlocal makeprg=dart_analyzer\ --enable_type_checks\ %\ 2>&1\ \\\|\ sed\ 's/file://'
 
 " map new tab to a split
 map <C-w>gf <C-w><C-f>
@@ -50,8 +59,10 @@ map <C-w>gf <C-w><C-f>
 " map shift-I in visual to act like visualextra
 vnoremap <expr> I mode() ==# 'V' ? "\<C-v>0I" : "I"
 
+autocmd BufEnter * setlocal cursorline
 autocmd WinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
+setlocal cursorline
 
 hi cursorline guibg=#292929
 hi colorcolumn guibg=#200000
