@@ -46,8 +46,8 @@ au InsertEnter * hi statusline term=reverse ctermbg=6 gui=undercurl guisp=Magent
 au InsertLeave * hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
 hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
 
-let g:ycm_key_select_completion = '<C-n>'
-let g:ycm_key_select_completion = '<c-p>'
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
 
 " Default to make for make
 set makeprg=make

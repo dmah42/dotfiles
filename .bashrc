@@ -39,7 +39,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export EDITOR="gvim -f"
+export EDITOR="vim -f"
 
 export PATH=$PATH:~/bin
 export LSCOLORS=fxfxcxdxbxegedabagacad
@@ -60,3 +60,6 @@ export LSCOLORS=fxfxcxdxbxegedabagacad
 #   echo "Screen failed! continuing with normal bash startup"
 # fi
 # [end of auto-screen snippet]
+
+# vim mode
+set -o vi
