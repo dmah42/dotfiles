@@ -227,4 +227,10 @@ command! -nargs=? G call GitGrep(0, <q-args>)
 nmap <C-x>* :call GitGrep(1, "<cword>")<CR>
 vmap <C-x>/ :call GitGrep(0, GetVisual())<CR>
 
+" better diff colors
+highlight! DiffAdd cterm=bold ctermfg=17 ctermbg=2 gui=none guifg=bg guibg=Green
+highlight! DiffDelete cterm=bold ctermfg=17 ctermbg=1 gui=none guifg=bg guibg=Red
+highlight! DiffChange cterm=bold ctermfg=17 ctermbg=3 gui=none guifg=bg guibg=Yellow
+highlight! DiffText   cterm=bold ctermfg=17 ctermbg=6 gui=none guifg=bg guibg=Cyan
+
 call pathogen#infect() 
