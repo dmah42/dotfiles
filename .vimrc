@@ -126,7 +126,7 @@ endfunction
 
 " allow easy swapping of buffers between splits
 map mw <Esc>:call MarkWindowSwap()<CR>
-map sw <Esc>:call DoWindowSwap()<CR> 
+map sw <Esc>:call DoWindowSwap()<CR>
 
 function! MarkWindowSwap()
   let g:markedWinNum = winnr()
@@ -233,4 +233,4 @@ highlight! DiffDelete cterm=bold ctermfg=17 ctermbg=1 gui=none guifg=bg guibg=Re
 highlight! DiffChange cterm=bold ctermfg=17 ctermbg=3 gui=none guifg=bg guibg=Yellow
 highlight! DiffText   cterm=bold ctermfg=17 ctermbg=6 gui=none guifg=bg guibg=Cyan
 
-call pathogen#infect() 
+call pathogen#infect()
