@@ -25,8 +25,13 @@ if &diff
 endif
 au BufRead,BufNewFile *.wiki colorscheme koehler
 
-syntax on
+" force load of golang plugin
+filetype off
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
+
 filetype plugin indent on
+syntax on
 
 set foldmethod=syntax
 set foldlevelstart=99
