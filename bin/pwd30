@@ -3,7 +3,7 @@
 v_wd=$(pwd)
 [[ "$v_wd" =~ ^"$HOME"(/|$) ]] && v_wd="~${v_wd#$HOME}"
 if [ ${#v_wd} -gt 30 ] ; then
-  echo ${v_wd} | sed -e 's!.*\(........................\)! ...\1!'
+  echo ${v_wd} | sed -e 's!.*\(..............................\)! ...\1!'
 else
   echo ${v_wd}
 fi
