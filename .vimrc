@@ -102,10 +102,8 @@ function! s:ExecuteInShell(command)
 endfunction
 
 command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
-command! -complete=file -nargs=* Blaze call s:ExecuteInShell('blaze '.<q-args>)
 command! -nargs=* Git call s:ExecuteInShell('git '.<q-args>)
 command! -nargs=* Make call s:ExecuteInShell('make '.<q-args>)
-command! -nargs=* GomaMake call s:ExecuteInShell('PATH=/home/dominich/goma:$PATH make -j100 '.<q-args>)
 
 " create file-close and file-quit to close buffers without destroying splits
 map fc <Esc>:call CleanClose(1)<CR>
@@ -164,15 +162,14 @@ endfunction
 inoremap {<CR> {<CR><Esc>:call SmartBraceComplete()<CR>O
 
 """ Switch back and forth between: (credit David Reiss)
-"         .h / -inl.h / .cc / .mm / .py / .js / _test.* / _unittest.* / _browsertest.*
-"  with   ,h / ,i     / ,c  / ,m  / ,p  / ,j  / ,t      / ,u	      / ,b
-let pattern = '\(\(_\(unit\|browser\)\?test\)\?\.\(cc\|js\|py\|mm\)\|\(-inl\)\?\.h\)$'
+"         .h / -inl.h / .cc / .mm / .py / .js / _test.* / _unittest.*
+"  with   ,h / ,i     / ,c  / ,m  / ,p  / ,j  / ,t      / ,u
+let pattern = '\(\(_\(unit\)\?test\)\?\.\(cc\|js\|py\|mm\)\|\(-inl\)\?\.h\)$'
 nmap ,c :e <C-R>=substitute(expand("%"), pattern, ".cc", "")<CR><CR>
 nmap ,h :e <C-R>=substitute(expand("%"), pattern, ".h", "")<CR><CR>
 nmap ,i :e <C-R>=substitute(expand("%"), pattern, "-inl.h", "")<CR><CR>
 nmap ,t :e <C-R>=substitute(expand("%"), pattern, "_test.", "") . substitute(expand("%:e"), "h", "cc", "")<CR><CR>
 nmap ,u :e <C-R>=substitute(expand("%"), pattern, "_unittest.", "") . substitute(expand("%:e"), "h", "cc", "")<CR><CR>
-nmap ,b :e <C-R>=substitute(expand("%"), pattern, "_browsertest.", "") . substitute(expand("%:e"), "h", "cc", "")<CR><CR>
 nmap ,m :e <C-R>=substitute(expand("%"), pattern, ".mm", "")<CR><CR>
 nmap ,p :e <C-R>=substitute(expand("%"), pattern, ".py", "")<CR><CR>
 nmap ,j :e <C-R>=substitute(expand("%"), pattern, ".js", "")<CR><CR>
