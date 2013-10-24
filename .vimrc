@@ -49,6 +49,10 @@ hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
 let g:ycm_key_list_select_completion = ['<C-n>']
 let g:ycm_key_list_previous_completion = ['<C-p>']
 
+let g:session_directory = '~/.vimsessions'
+let g:session_persist_globals = ['&makeprg']
+let g:session_menu = 0
+
 " Default to make for make
 set makeprg=make
 au filetype dart setlocal makeprg=dart_analyzer\ --enable_type_checks\ %\ 2>&1\ \\\|\ sed\ 's/file://'
@@ -79,7 +83,7 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
-au! WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
+au! FileType * call HighlightTooLongLines()
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
