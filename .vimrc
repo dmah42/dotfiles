@@ -23,7 +23,7 @@ colorscheme elflord
 if &diff
   colorscheme murphy
 endif
-au BufRead,BufNewFile *.wiki colorscheme koehler
+au FileType wiki colorscheme koehler
 
 " force load of golang plugin
 filetype off
@@ -56,7 +56,7 @@ let g:ycm_key_list_previous_completion = ['<C-p>']
 
 " Default to make for make
 set makeprg=make
-au filetype dart setlocal makeprg=dart_analyzer\ --enable_type_checks\ %\ 2>&1\ \\\|\ sed\ 's/file://'
+au FileType dart setlocal makeprg=dart_analyzer\ --enable_type_checks\ %\ 2>&1\ \\\|\ sed\ 's/file://'
 
 " map new tab to a split
 map <C-w>gf <C-w><C-f>
@@ -84,7 +84,9 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
-au! WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
+autocmd FileType c,cpp setlocal textwidth=80
+autocmd FileType c,cpp call HighlightTooLongLines()
+autocmd FileType go setlocal textwidth=0 noet shiftwidth=8 tabstop=8 softtabstop=8
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
