@@ -61,6 +61,8 @@ let g:session_menu = 0
 " Default to make for make
 set makeprg=make
 au filetype dart setlocal makeprg=dart_analyzer\ --enable_type_checks\ %\ 2>&1\ \\\|\ sed\ 's/file://'
+au filetype c,go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
+au filetype cpp call HighlightTooLongLines()
 
 " map new tab to a split
 map <C-w>gf <C-w><C-f>
@@ -87,8 +89,6 @@ function! HighlightTooLongLines()
     exec 'match RightMargin /\%>' . &textwidth . 'v.\+/'
   endif
 endfunction
-
-au! FileType * call HighlightTooLongLines()
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
