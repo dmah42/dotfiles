@@ -10,7 +10,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg -a -r /home/dominich/Pictures/wallpapers" }
+theme.wallpaper_cmd = { "awsetbg -a -r ~/Pictures/wallpapers" }
 -- }}}
 
 -- {{{ Styles

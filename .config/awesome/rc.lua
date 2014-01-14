@@ -69,7 +69,7 @@ mymainmenu = awful.menu({
     items = {
         { "awesome", myawesomemenu, beautiful.awesome_icon },
         { "applications", myapplicationsmenu, beautiful.menu_submenu_icon },
-        { "wallpaper", "awsetbg -a -r /home/dominic/Pictures/wallpapers" },
+        { "wallpaper", "awsetbg -a -r ~/Pictures/wallpapers" },
         { "lock", "gnome-screensaver-command --lock" },
         { "logout", awesome.quit }
     }
@@ -377,10 +377,10 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- }}}
 
 -- {{{ Autostart
+awful.util.spawn("xmodmap ~/.xmodmap")
 awful.util.spawn("run_once.sh gnome-settings-daemon")
 awful.util.spawn("run_once.sh gnome-screensaver")
 awful.util.spawn("run_once.sh gnome-sound-applet")
 awful.util.spawn("run_once.sh nm-applet")
 awful.util.spawn("run_once.sh conky")
 awful.util.spawn("run_once.sh " .. terminal .. " -e irssi")
-awful.util.spawn("xmodmap /home/dominic/.xmodmap")
