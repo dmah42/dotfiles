@@ -61,11 +61,11 @@ let g:session_menu = 0
 " Default to make for make
 set makeprg=make
 
-au filetype dart setlocal makeprg=dart_analyzer\ --enable_type_checks\ %\ 2>&1\ \\\|\ sed\ 's/file://'
+au filetype dart setlocal makeprg=dartanalyzer\ %\ 2>&1\ \\\|\ sed\ 's/file://'
 au filetype c,go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
 au filetype go setlocal textwidth=0
-au filetype c,cpp setlocal textwidth=80
-au filetype c,cpp call HighlightTooLongLines()
+au filetype c,cpp,js,dart setlocal textwidth=80
+au filetype c,cpp,js,dart call HighlightTooLongLines()
 
 " map new tab to a split
 map <C-w>gf <C-w><C-f>
@@ -82,9 +82,8 @@ hi cursorline guibg=#292929
 hi colorcolumn guibg=#200000
 
 " if editing .vimrc source it on write
-autocmd! bufwritepost .vimrc source %
-autocmd! bufwritepost .vimplugins/* source ~/.vimrc
-autocmd! bufwritepost vimwiki/*.wiki execute 'Vimwiki2HTML'
+autocmd bufwritepost .vimrc source %
+autocmd bufwritepost vimwiki/*.wiki execute 'Vimwiki2HTML'
 
 function! HighlightTooLongLines()
   highlight def link RightMargin Error
