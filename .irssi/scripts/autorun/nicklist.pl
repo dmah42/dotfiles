@@ -1,0 +1,1 @@
+/home/dominic/.irssi/scripts/nicklist.pl
