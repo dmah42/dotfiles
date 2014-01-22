@@ -13,16 +13,10 @@ own_window_type desktop
 use_xft yes
 
 # Xft font when Xft is enabled
-xftfont Andale Mono:size=9
+xftfont Andale Mono:size=8
 
 # Text alpha when using Xft
 xftalpha 0.6
-
-# Print everything to console?
-# out_to_console no
-
-# mail spool
-#mail_spool $MAIL
 
 # Update interval in seconds
 update_interval 2.5
@@ -67,7 +61,7 @@ alignment bottom_left
 # Gap between borders of screen and text
 # same thing as passing -x at command line
 gap_x 20
-gap_y 40
+gap_y 20
 
 # Subtract file system buffers from used memory?
 no_buffers yes
@@ -285,8 +279,11 @@ ${color slate grey}Date ${alignr}${color }${time %a, %e %B %G}
 ${color slate grey}Time ${alignr}${color }${time %Z, %H:%M:%S}
 ${color slate grey}Uptime ${alignr}${color }$uptime
 ${color slate grey}Kern ${alignr}${color }$kernel
+${color slate grey}Battery ${alignr}${color }$battery_time
+${alignr}${color lightgrey}$battery
+${battery_bar 3,180}
 ${color slate grey}CPU ${alignr}${color } $cpu%
-${cpugraph 20,180 000000 ffffff}
+${cpugraph 20,180 666666 ffffff}
 ${color slate grey}Load ${alignr}${color }$loadavg
 ${color slate grey}Processes ${alignr}${color }$processes
 ${color slate grey}Running ${alignr}${color }$running_processes
@@ -315,15 +312,11 @@ ${color lightgrey} ${top_mem name 6}${alignr}${top_mem mem 6}
 ${color slate grey}DISK
 ${color slate grey}/ ${alignr}${color }${fs_free /} / ${fs_size /}
 ${fs_bar 3,180 /}
-${color slate grey}google ${alignr}${color }${fs_free /usr/local/google} / ${fs_size /usr/local/google}
-${fs_bar 3,180 /usr/local/google}
-${color slate grey}storage ${alignr}${color }${fs_free /usr/local/storage} / ${fs_size /usr/local/storage}
-${fs_bar 3,180 /usr/local/storage}
-${color slate grey}~ ${alignr}${color }${fs_free /home/dominich} / ${fs_size /home/dominich}
-${fs_bar 3,180 /home/dominich}
+${color slate grey}~ ${alignr}${color }${fs_free /home/dominic} / ${fs_size /home/dominic}
+${fs_bar 3,180 /home/dominic}
 
 ${color slate grey}NET
 ${color slate grey}Up ${alignr}${color }${upspeed eth0}${color}
-${upspeedgraph eth0 20,180 000000 ffffff}
+${upspeedgraph eth0 20,180 666666 ffffff}
 ${color slate grey}Down ${alignr}${color }${downspeed eth0}${color}
-${downspeedgraph eth0 20,180 000000 ffffff}
+${downspeedgraph eth0 20,180 666666 ffffff}
