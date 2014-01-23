@@ -24,3 +24,5 @@
 #	default = simple
 [user]
 	name = Dominic Hamon
+[push]
+	default = simple
