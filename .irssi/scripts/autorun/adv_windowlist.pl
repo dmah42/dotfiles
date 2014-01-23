@@ -1,1 +1,1 @@
-/home/dominic/.irssi/scripts/adv_windowlist.pl
+../adv_windowlist.pl
