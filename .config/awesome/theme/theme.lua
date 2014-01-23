@@ -3,18 +3,17 @@
 --    By Adrian C. (anrxc)   --
 -------------------------------
 
--- Adapted by Dominic H (dma)
-
 -- Alternative icon sets and widget icons:
 --  * http://awesome.naquadah.org/wiki/Nice_Icons
 
 -- {{{ Main
 theme = {}
-theme.wallpaper_cmd = { "awsetbg -a -r ~/Pictures/wallpapers" }
+theme.random_wallpaper = "awsetbg -a -r /home/dominic/Pictures/wallpapers"
+theme.wallpaper_cmd = { theme.random_wallpaper }
 -- }}}
 
 -- {{{ Styles
-theme.font      = "sans 9"
+theme.font      = "sans 8"
 
 -- {{{ Colors
 theme.fg_normal = "#DCDCCC"
@@ -51,9 +50,9 @@ theme.titlebar_bg_normal = "#3F3F3F"
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
---theme.fg_widget        = "#AECF96"
---theme.fg_center_widget = "#88A175"
---theme.fg_end_widget    = "#FF5656"
+theme.fg_widget        = "#AECF96"
+theme.fg_center_widget = "#88A175"
+theme.fg_end_widget    = "#FF5656"
 --theme.bg_widget        = "#494B4F"
 --theme.border_widget    = "#3F3F3F"
 -- }}}
@@ -68,7 +67,7 @@ theme.mouse_finder_color = "#CC9393"
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_height = "15"
-theme.menu_width  = "160"
+theme.menu_width  = "120"
 -- }}}
 
 -- {{{ Icons
@@ -123,6 +122,13 @@ theme.titlebar_maximized_button_normal_active = "/usr/share/awesome/themes/zenbu
 theme.titlebar_maximized_button_focus_inactive  = "/usr/share/awesome/themes/zenburn/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = "/usr/share/awesome/themes/zenburn/titlebar/maximized_normal_inactive.png"
 -- }}}
+-- }}}
+
+-- {{{ Battery
+theme.battery_ac = awful.util.getdir("config") .. "/theme/icons/ac_01.png"
+theme.battery_empty = awful.util.getdir("config") .. "/theme/icons/battery_empty_01.png"
+theme.battery_low = awful.util.getdir("config") .. "/theme/icons/battery_low_01.png"
+theme.battery_full = awful.util.getdir("config") .. "/theme/icons/battery_full_01.png"
 -- }}}
 
 return theme
