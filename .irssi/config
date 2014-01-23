@@ -280,7 +280,7 @@ statusbar = {
 settings = {
   core = { real_name = "dominic"; user_name = "dominic"; nick = "dma"; };
   "fe-text" = { actlist_sort = "refnum"; };
-  "fe-common/core" = { print_active_channel = "yes"; theme = "default"; };
+  "fe-common/core" = { print_active_channel = "yes"; theme = "tzu"; };
   "perl/core/scripts" = {
     awl_block = "20";
     awl_display_key = "$Q%K|$N%n $H$C$S";
