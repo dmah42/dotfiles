@@ -23,7 +23,8 @@ colorscheme elflord
 if &diff
   colorscheme murphy
 endif
-au FileType wiki colorscheme koehler
+au filetype wiki colorscheme koehler
+au filetype ebnf colorscheme slate
 
 " force load of golang plugin
 filetype off
@@ -47,10 +48,12 @@ set wildmode=list:longest,full
 
 set laststatus=2
 set statusline=%n\ %<%F%h%m%r%h%w\ %y\ %{&ff}\ %{strftime(\"%d/%m/%Y\")}\ %{strftime(\"%H:%M\")}%=\ col:%c%V\ pos:%o\ line:%l/%L\ %P
-au InsertEnter * hi statusline term=reverse ctermbg=6 gui=undercurl guisp=Magenta
-au InsertLeave * hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
-hi statusline term=reverse ctermfg=220 ctermbg=59 gui=bold,reverse
+au insertenter * hi statusline term=reverse ctermfg='red' ctermbg='black' gui=undercurl guisp=Magenta
+au insertleave * hi statusline term=reverse ctermfg='green' ctermbg='black' gui=bold,reverse
+hi statusline term=reverse ctermfg='green' ctermbg='gray'
 
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_extra_conf_globlist = ['~/git/*', '!~/*']
 let g:ycm_key_list_select_completion = ['<C-n>']
 let g:ycm_key_list_previous_completion = ['<C-p>']
 
@@ -63,6 +66,7 @@ set makeprg=make
 
 au filetype dart setlocal makeprg=dartanalyzer\ %\ 2>&1\ \\\|\ sed\ 's/file://'
 au filetype c,go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
+au filetype cpp setlocal et tabstop=2 shiftwidth=2 softtabstop=2
 au filetype go setlocal textwidth=0
 au filetype c,cpp,js,dart setlocal textwidth=80
 au filetype c,cpp,js,dart call HighlightTooLongLines()
@@ -73,9 +77,9 @@ map <C-w>gf <C-w><C-f>
 " map shift-I in visual to act like visualextra
 vnoremap <expr> I mode() ==# 'V' ? "\<C-v>0I" : "I"
 
-autocmd BufEnter * setlocal cursorline
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+autocmd bufenter * setlocal cursorline
+autocmd winenter * setlocal cursorline
+autocmd winleave * setlocal nocursorline
 setlocal cursorline
 
 hi cursorline guibg=#292929
@@ -159,6 +163,9 @@ function! SmartBraceComplete()
   if getline(line('.')-1) =~ '^\s*\(class\|struct\)'
     echo 'class'
     normal i};
+  "else if getline(line('.')-1) =~ '^\s*namespace'
+  "  echo 'namespace'
+  "  normal i}  \/\/ end namespace
   else
     echo 'normal'
     normal i}
