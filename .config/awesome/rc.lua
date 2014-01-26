@@ -78,7 +78,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names = { "1. personal", "2. dev.do", 3, 4, 5, 6, 7, 8, 9 },
+	names = { "1. personal", "2. twitter", "3. dev.do", 4, 5, 6, 7, 8, 9 },
 	layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
 		   layouts[2], layouts[2], layouts[1] }
 }
@@ -100,9 +100,10 @@ myawesomemenu = {
 }
 
 myappmenu = {
-	{ "chrome", "chromium-browser" },
-	{ "vim", editor },
-	{ "terminal", terminal }
+	{ "chrome", "google-chrome" },
+	{ "terminal", terminal },
+	{ "tweetdeck", "google-chrome --app=http://tweetdeck.com" },
+	{ "vim", editor }
 }
 
 mymainmenu = awful.menu({
@@ -305,7 +306,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
 
     -- application launching
-    awful.key({ modkey },            "c", function () awful.util.spawn("chromium-browser") end),
+    awful.key({ modkey },            "c", function () awful.util.spawn("google-chrome") end),
     awful.key({ modkey },            "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey },            "v", function () awful.util.spawn(editor) end)
 )
@@ -388,15 +389,11 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+    { rule_any = { class = {"MPlayer", "pinentry", "Gimp"} },
+	properties = { floating = true } },
+    -- set tweetdeck to always map to the twitter tag
+    { rule = { instance = "tweetdeck.com" },
+    	properties = { tag = tags[1][2] } }
 }
 -- }}}
 
