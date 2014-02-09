@@ -1,0 +1,47 @@
+#!/bin/bash
+
+mkdir -p ~/.pulse
+ls ~/.pulse/mute &> /dev/null
+if [[ $? != 0 ]]
+then
+	echo "0" > ~/.pulse/mute
+fi
+
+ls ~/.pulse/volume &> /dev/null
+if [[ $? != 0 ]]
+then
+	echo "65536" > ~/.pulse/volume
+fi
+
+CURVOL=$(cat ~/.pulse/volume)
+MUTE=$(cat ~/.pulse/mute)
+VOLDELTA=6535
+
+if [[ $1 == "mute" ]]; then
+	if [[ $MUTE -eq 0 ]]; then
+		MUTE=1
+	else
+		MUTE=0
+	fi
+	pactl set-sink-mute 0 $MUTE
+	echo $MUTE > ~/.pulse/mute
+else
+	if [[ $1 == "inc" ]]; then
+		CURVOL=$(($CURVOL + $VOLDELTA))
+		if [[ $CURVOL -ge 65536 ]]; then
+			CURVOL=65536
+		fi
+	elif [[ $1 == "dec" ]]; then
+		CURVOL=$(($CURVOL - $VOLDELTA))
+		if [[ $CURVOL -le 0 ]]; then
+			CURVOL=0
+		fi
+	fi
+	pactl set-sink-volume 0 $CURVOL
+	echo $CURVOL > ~/.pulse/volume
+	# unmute on volume key press
+	pactl set-sink-mute 0 0
+	echo 0 > ~/.pulse/mute
+fi
+
+paplay /usr/share/sounds/ubuntu/stereo/message.ogg
