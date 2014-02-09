@@ -17,15 +17,6 @@ set tags=./tags;
 
 set hidden
 
-set t_Co=256
-set background=dark
-colorscheme elflord
-if &diff
-  colorscheme murphy
-endif
-au filetype wiki colorscheme koehler
-au filetype ebnf colorscheme slate
-
 " force load of golang plugin
 filetype off
 filetype plugin indent off
@@ -48,18 +39,9 @@ set wildmode=list:longest,full
 
 set laststatus=2
 set statusline=%n\ %<%F%h%m%r%h%w\ %y\ %{&ff}\ %{strftime(\"%d/%m/%Y\")}\ %{strftime(\"%H:%M\")}%=\ col:%c%V\ pos:%o\ line:%l/%L\ %P
-au insertenter * hi statusline term=reverse ctermfg='red' ctermbg='black' gui=undercurl guisp=Magenta
-au insertleave * hi statusline term=reverse ctermfg='green' ctermbg='black' gui=bold,reverse
-hi statusline term=reverse ctermfg='green' ctermbg='gray'
-
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_extra_conf_globlist = ['~/git/*', '!~/*']
-let g:ycm_key_list_select_completion = ['<C-n>']
-let g:ycm_key_list_previous_completion = ['<C-p>']
-
-let g:session_directory = '~/.vimsessions'
-let g:session_persist_globals = ['&makeprg']
-let g:session_menu = 0
+au insertenter * hi statusline term=reverse ctermfg='red' gui=undercurl guisp=Magenta
+au insertleave * hi statusline term=reverse ctermfg='green' gui=bold,reverse
+hi statusline term=reverse ctermfg='green' 
 
 " Default to make for make
 set makeprg=make
@@ -73,6 +55,10 @@ au filetype c,cpp,js,dart call HighlightTooLongLines()
 
 " map new tab to a split
 map <C-w>gf <C-w><C-f>
+
+" map ctrl-f to clang-format
+map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.3.py<CR>
+imap <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.3.py<CR>
 
 " map shift-I in visual to act like visualextra
 vnoremap <expr> I mode() ==# 'V' ? "\<C-v>0I" : "I"
@@ -242,10 +228,28 @@ command! -nargs=? G call GitGrep(0, <q-args>)
 nmap <C-x>* :call GitGrep(1, "<cword>")<CR>
 vmap <C-x>/ :call GitGrep(0, GetVisual())<CR>
 
+let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_extra_conf_globlist = ['~/git/*', '!~/*']
+let g:ycm_key_list_select_completion = ['<C-n>']
+let g:ycm_key_list_previous_completion = ['<C-p>']
+
+let g:session_directory = '~/.vimsessions'
+let g:session_persist_globals = ['&makeprg']
+let g:session_menu = 0
+
+call pathogen#infect()
+
+set t_Co=256
+set background=dark
+colorscheme inkpot
+if &diff
+  colorscheme murphy
+endif
+au filetype wiki colorscheme koehler
+
 " better diff colors
 highlight! DiffAdd cterm=bold ctermfg=17 ctermbg=2 gui=none guifg=bg guibg=Green
 highlight! DiffDelete cterm=bold ctermfg=17 ctermbg=1 gui=none guifg=bg guibg=Red
 highlight! DiffChange cterm=bold ctermfg=17 ctermbg=3 gui=none guifg=bg guibg=Yellow
 highlight! DiffText   cterm=bold ctermfg=17 ctermbg=6 gui=none guifg=bg guibg=Cyan
 
-call pathogen#infect()
