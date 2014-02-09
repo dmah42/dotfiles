@@ -78,9 +78,9 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names = { "1. personal", "2. twitter", "3. dev.do", 4, 5, 6, 7, 8, 9 },
+	names = { "1. personal", "2. twitter", "3. dev.do", "4. dev.dartbox2d", "5. dev.benchmark", "6. steam", 7, 8, 9 },
 	layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
-		   layouts[2], layouts[2], layouts[1] }
+		   layouts[2], layouts[2], layouts[11] }
 }
 
 for s = 1, screen.count() do
@@ -101,6 +101,7 @@ myawesomemenu = {
 
 myappmenu = {
 	{ "chrome", "google-chrome" },
+	{ "irssi",  terminal .. " -e irssi" },
 	{ "terminal", terminal },
 	{ "tweetdeck", "google-chrome --app=http://tweetdeck.com" },
 	{ "vim", editor }
@@ -307,8 +308,10 @@ globalkeys = awful.util.table.join(
 
     -- application launching
     awful.key({ modkey },            "c", function () awful.util.spawn("google-chrome") end),
+    awful.key({ modkey },            "i", function () awful.util.spawn(terminal .. " -e irssi") end),
     awful.key({ modkey },            "t", function () awful.util.spawn(terminal) end),
-    awful.key({ modkey },            "v", function () awful.util.spawn(editor) end)
+    awful.key({ modkey },            "v", function () awful.util.spawn(editor) end),
+    awful.key({ modkey },            "x", function () awful.util.spawn("gnome-screensaver-command --lock") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -393,7 +396,9 @@ awful.rules.rules = {
 	properties = { floating = true } },
     -- set tweetdeck to always map to the twitter tag
     { rule = { instance = "tweetdeck.com" },
-    	properties = { tag = tags[1][2] } }
+    	properties = { tag = tags[1][2] } },
+    { rule = { class = "Steam" },
+    	properties = { tag = tags[1][6] } }
 }
 -- }}}
 
@@ -440,6 +445,7 @@ function run_once(cmd)
 end
 
 run_once("xmodmap /home/dominic/.Xmodmap")
+run_once("xbindkeys")
 run_once("gnome-settings-daemon")
 run_once("gnome-screensaver")
 run_once("conky")

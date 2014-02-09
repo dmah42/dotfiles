@@ -1,0 +1,8 @@
+"~/bin/volume inc"
+	XF86AudioRaiseVolume
+
+"~/bin/volume dec"
+	XF86AudioLowerVolume
+
+"~/bin/volume mute"
+	XF86AudioMute
