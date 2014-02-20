@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.random_wallpaper = "awsetbg -a -r /home/dominic/Pictures/wallpapers"
+theme.random_wallpaper = "awsetbg -a -r /home/dominic/Pictures/wallpapers/"
 theme.wallpaper_cmd = { theme.random_wallpaper }
 -- }}}
 
@@ -126,9 +126,9 @@ theme.titlebar_maximized_button_normal_inactive = "/usr/share/awesome/themes/zen
 
 -- {{{ Battery
 theme.battery_ac = awful.util.getdir("config") .. "/theme/icons/ac_01.png"
-theme.battery_empty = awful.util.getdir("config") .. "/theme/icons/battery_empty_01.png"
-theme.battery_low = awful.util.getdir("config") .. "/theme/icons/battery_low_01.png"
-theme.battery_full = awful.util.getdir("config") .. "/theme/icons/battery_full_01.png"
+theme.battery_empty = awful.util.getdir("config") .. "/theme/icons/bat_empty_01.png"
+theme.battery_low = awful.util.getdir("config") .. "/theme/icons/bat_low_01.png"
+theme.battery_full = awful.util.getdir("config") .. "/theme/icons/bat_full_01.png"
 -- }}}
 
 return theme
