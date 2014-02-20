@@ -247,6 +247,9 @@ if &diff
 endif
 au filetype wiki colorscheme koehler
 
+" transparent bg
+highlight! Normal ctermbg=none
+
 " better diff colors
 highlight! DiffAdd cterm=bold ctermfg=17 ctermbg=2 gui=none guifg=bg guibg=Green
 highlight! DiffDelete cterm=bold ctermfg=17 ctermbg=1 gui=none guifg=bg guibg=Red
