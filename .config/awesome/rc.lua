@@ -78,7 +78,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names = { "1. personal", "2. twitter", "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. steam", 8, 9 },
+	names = { "1. personal", "2. twitter", "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. steam", 9 },
 	layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
 		   layouts[2], layouts[2], layouts[11] }
 }
@@ -88,12 +88,12 @@ for s = 1, screen.count() do
 	tags[s] = awful.tag(tags.names, s, tags.layout)
 
 	-- And change wallpaper every time we change tags
-	for t = 1, table.getn(tags.names) do
-		tags[s][t]:add_signal("property::selected", function (tag)
-			if not tag.selected then return end
-			awful.util.spawn(beautiful.random_wallpaper)
-		end)
-	end
+	-- for t = 1, table.getn(tags.names) do
+	-- 	tags[s][t]:add_signal("property::selected", function (tag)
+	-- 		if not tag.selected then return end
+	-- 		awful.util.spawn(beautiful.random_wallpaper)
+	-- 	end)
+	-- end
 end
 -- }}}
 
@@ -168,6 +168,13 @@ vicious.register(batwidget, vicious.widgets.bat,
 
 		return '<span color="' .. color .. '">' .. args[2] .. '%</span> ' .. args[3]
 	end, 5, "BAT0")
+
+cpuwidget = awful.widget.graph()
+cpuwidget:set_width(30)
+cpuwidget:set_background_color("#494B4F")
+cpuwidget:set_color("#FF5656")
+cpuwidget:set_gradient_colors({"#FF5656", "#88A175", "#AECF96"})
+vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -248,6 +255,8 @@ for s = 1, screen.count() do
 	separator,
 	batwidget,
 	baticon,
+	separator,
+	cpuwidget,
 	separator,
         s == 1 and mysystray or nil,
         mytasklist[s],
@@ -406,7 +415,7 @@ awful.rules.rules = {
     { rule = { instance = "tweetdeck.com" },
     	properties = { tag = tags[1][2] } },
     { rule = { class = "Steam" },
-    	properties = { tag = tags[1][7] } }
+    	properties = { tag = tags[1][8] } }
 }
 -- }}}
 
