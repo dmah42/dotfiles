@@ -16,7 +16,7 @@ set hidden
 set tags=./tags;
 
 set hidden
-set backspace=indent,eol,start
+set backspace=eol,indent,start
 
 " force load of golang plugin
 filetype off
