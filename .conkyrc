@@ -312,8 +312,6 @@ ${color lightgrey} ${top_mem name 6}${alignr}${top_mem mem 6}
 ${color slate grey}DISK
 ${color slate grey}/ ${alignr}${color }${fs_free /} / ${fs_size /}
 ${fs_bar 3,180 /}
-${color slate grey}~ ${alignr}${color }${fs_free /home/dominic} / ${fs_size /home/dominic}
-${fs_bar 3,180 /home/dominic}
 
 ${color slate grey}NET
 ${color slate grey}Up ${alignr}${color }${upspeed eth0}${color}
