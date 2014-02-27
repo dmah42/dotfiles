@@ -16,6 +16,7 @@ set hidden
 set tags=./tags;
 
 set hidden
+set backspace=indent,eol,start
 
 " force load of golang plugin
 filetype off
@@ -45,6 +46,8 @@ hi statusline term=reverse ctermfg='green'
 
 " Default to make for make
 set makeprg=make
+
+setlocal et tabstop=2 shiftwidth=2 softtabstop=2
 
 au filetype dart setlocal makeprg=dartanalyzer\ %\ 2>&1\ \\\|\ sed\ 's/file://'
 au filetype c,go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
