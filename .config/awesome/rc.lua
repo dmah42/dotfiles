@@ -78,7 +78,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names = { "1. personal", "2. twitter", "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. steam", 9 },
+	names = { "1. personal", "2. irc", "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. steam", 9 },
 	layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
 		   layouts[2], layouts[2], layouts[11] }
 }
@@ -170,10 +170,9 @@ vicious.register(batwidget, vicious.widgets.bat,
 	end, 5, "BAT0")
 
 cpuwidget = awful.widget.graph()
-cpuwidget:set_width(30)
-cpuwidget:set_background_color("#494B4F")
-cpuwidget:set_color("#FF5656")
-cpuwidget:set_gradient_colors({"#FF5656", "#88A175", "#AECF96"})
+cpuwidget:set_width(20)
+cpuwidget:set_background_color(beautiful.bg_normal)
+cpuwidget:set_color(beautiful.fg_normal)
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1")
 
 -- Create a wibox for each screen and add it
@@ -256,7 +255,7 @@ for s = 1, screen.count() do
 	batwidget,
 	baticon,
 	separator,
-	cpuwidget,
+	cpuwidget.widget,
 	separator,
         s == 1 and mysystray or nil,
         mytasklist[s],
