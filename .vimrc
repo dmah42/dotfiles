@@ -85,6 +85,9 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
+highlight def link ExtraWhitespace Error
+exec 'match ExtraWhitespace /\s\+$\| \+\ze\t/'
+
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
   let command = join(map(split(a:command), 'expand(v:val)'))
