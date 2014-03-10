@@ -295,7 +295,7 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "dominic"; user_name = "dominic"; nick = "dma"; };
+  core = { real_name = "dominic"; user_name = "dominic"; nick = "mrdo"; };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { print_active_channel = "yes"; theme = "tzu"; };
   "perl/core/scripts" = {
@@ -305,8 +305,4 @@ settings = {
     awl_display_nokey = "$H$C$S";
   };
 };
-ignores = (
-  { level = "JOINS"; servertag = "freenode"; channels = ( "#mesos" ); },
-  { level = "PARTS"; servertag = "freenode"; channels = ( "#mesos" ); },
-  { level = "QUITS"; servertag = "freenode"; channels = ( "#mesos" ); }
-);
+ignores = ( { level = "JOINS PARTS QUITS"; channels = ( "#mesos" ); } );
