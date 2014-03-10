@@ -108,7 +108,12 @@ chatnets = {
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
   perl = { type = "IRC"; nick = "mrdo"; };
-  freenode = { type = "IRC"; nick = "dhamon"; username = "dhamon"; realname = "Dominic Hamon"; };
+  freenode = {
+    type = "IRC";
+    nick = "dhamon";
+    username = "dhamon";
+    realname = "Dominic Hamon";
+  };
   nickserv = { type = "IRC"; autosendcmd = "/msg"; };
 };
 
@@ -300,3 +305,8 @@ settings = {
     awl_display_nokey = "$H$C$S";
   };
 };
+ignores = (
+  { level = "JOINS"; servertag = "freenode"; channels = ( "#mesos" ); },
+  { level = "PARTS"; servertag = "freenode"; channels = ( "#mesos" ); },
+  { level = "QUITS"; servertag = "freenode"; channels = ( "#mesos" ); }
+);
