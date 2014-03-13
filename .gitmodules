@@ -19,3 +19,6 @@
 [submodule ".vim/bundle/colorschemes"]
 	path = .vim/bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
+[submodule ".vim/bundle/ctrlp"]
+	path = .vim/bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
