@@ -47,6 +47,8 @@ hi statusline term=reverse ctermfg='green'
 " Default to make for make
 set makeprg=make
 
+setlocal et tabstop=2 shiftwidth=2 softtabstop=2
+
 au filetype dart setlocal makeprg=dartanalyzer\ %\ 2>&1\ \\\|\ sed\ 's/file://'
 au filetype c,go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
 au filetype cpp setlocal et tabstop=2 shiftwidth=2 softtabstop=2
@@ -82,6 +84,9 @@ function! HighlightTooLongLines()
     exec 'match RightMargin /\%>' . &textwidth . 'v.\+/'
   endif
 endfunction
+
+highlight def link ExtraWhitespace Error
+exec 'match ExtraWhitespace /\s\+$\| \+\ze\t/'
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
