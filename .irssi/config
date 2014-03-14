@@ -39,7 +39,6 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-    nick = "dhamon";
   }
 );
 
@@ -108,7 +107,12 @@ chatnets = {
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
   perl = { type = "IRC"; nick = "mrdo"; };
-  freenode = { type = "IRC"; nick = "dhamon"; username = "dhamon"; realname = "Dominic Hamon"; };
+  freenode = {
+    type = "IRC";
+    nick = "dhamon";
+    username = "dhamon";
+    realname = "Dominic Hamon";
+  };
   nickserv = { type = "IRC"; autosendcmd = "/msg"; };
 };
 
