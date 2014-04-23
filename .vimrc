@@ -107,6 +107,8 @@ command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
 command! -nargs=* Git call s:ExecuteInShell('git '.<q-args>)
 command! -nargs=* Make call s:ExecuteInShell('make '.<q-args>)
 
+command! T G TODO(dhamon)
+
 " create file-close and file-quit to close buffers without destroying splits
 map fc <Esc>:call CleanClose(1)<CR>
 " map fq <Esc>:call CleanClose(0)<CR>
@@ -242,6 +244,8 @@ let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:session_directory = '~/.vimsessions'
 let g:session_persist_globals = ['&makeprg']
 let g:session_menu = 0
+
+let g:ctrlp_custom_ignore = '\v[\/](build|\.(git|hg|svn))$'
 
 call pathogen#infect()
 
