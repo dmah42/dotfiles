@@ -39,7 +39,6 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
-    nick = "dhamon";
   }
 );
 

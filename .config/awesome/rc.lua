@@ -78,22 +78,13 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names = { "1. personal", "2. irc", "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. steam", 9 },
-	layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2],
-		   layouts[2], layouts[2], layouts[11] }
+	names =  { "1. personal", "2. irc",   "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. steam", 9 },
+	layout = { layouts[2],    layouts[2], layouts[2],    layouts[2],         layouts[2],         layouts[2],     layouts[2],          layouts[2], layouts[10] }
 }
 
 for s = 1, screen.count() do
 	-- Each screen has its own tag table.
 	tags[s] = awful.tag(tags.names, s, tags.layout)
-
-	-- And change wallpaper every time we change tags
-	-- for t = 1, table.getn(tags.names) do
-	-- 	tags[s][t]:add_signal("property::selected", function (tag)
-	-- 		if not tag.selected then return end
-	-- 		awful.util.spawn(beautiful.random_wallpaper)
-	-- 	end)
-	-- end
 end
 -- }}}
 
@@ -414,7 +405,9 @@ awful.rules.rules = {
     { rule = { instance = "tweetdeck.com" },
     	properties = { tag = tags[1][2] } },
     { rule = { class = "Steam" },
-    	properties = { tag = tags[1][8] } }
+    	properties = { tag = tags[1][8] } },
+    { rule = { class = "Plex" },
+    	properties = { tag = tags[1][9] } }
 }
 -- }}}
 
