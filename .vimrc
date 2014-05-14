@@ -1,12 +1,4 @@
-" tab/shift-tab in visual mode handles indent
-vmap <Tab> >gv
-vmap <S-Tab> <LT>gv
-
-" better window switching
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+set nocompatible
 
 set nu
 set incsearch
@@ -55,13 +47,31 @@ au filetype cpp setlocal et tabstop=2 shiftwidth=2 softtabstop=2
 au filetype go setlocal textwidth=0
 au filetype c,cpp,js,dart setlocal textwidth=80
 au filetype c,cpp,js,dart call HighlightTooLongLines()
+au filetype c,cpp call HighlightWhitespace()
+
+" tab/shift-tab in visual mode handles indent
+vmap <Tab> >gv
+vmap <S-Tab> <LT>gv
+
+" better window switching
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+let mapleader=","
+
+" better buffer manipulation
+nnoremap <leader>n :bn<CR>
+nnoremap <leader>p :bp<CR>
+nnoremap <leader>c :bp\|bd #<CR>
 
 " map new tab to a split
 map <C-w>gf <C-w><C-f>
 
-" map ctrl-f to clang-format
-map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.3.py<CR>
-imap <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.3.py<CR>
+" map clang-format
+map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
+imap <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
 
 " map shift-I in visual to act like visualextra
 vnoremap <expr> I mode() ==# 'V' ? "\<C-v>0I" : "I"
@@ -85,8 +95,10 @@ function! HighlightTooLongLines()
   endif
 endfunction
 
-highlight def link ExtraWhitespace Error
-exec 'match ExtraWhitespace /\s\+$\| \+\ze\t/'
+function! HighlightWhitespace()
+	highlight def link ExtraWhitespace Question
+	exec 'match ExtraWhitespace /\s\+$\| \+\ze\t/'
+endfunction
 
 " new shell execute that pipes output to window
 function! s:ExecuteInShell(command)
