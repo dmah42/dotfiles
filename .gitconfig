@@ -23,5 +23,9 @@
 	diff =
 [push]
 	default = simple
+[format]
+	pretty = oneline
 [user]
 	name = Dominic Hamon
+[log]
+	decorate = true
