@@ -78,8 +78,8 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names =  { "1. personal", "2. irc",   "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. steam", 9 },
-	layout = { layouts[2],    layouts[2], layouts[2],    layouts[2],         layouts[2],         layouts[2],     layouts[2],          layouts[2], layouts[10] }
+	names =  { "1. personal", "2. irc",   "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. games", 9 },
+	layout = { layouts[2],    layouts[2], layouts[2],    layouts[2],         layouts[2],         layouts[2],     layouts[2],          layouts[1], layouts[10] }
 }
 
 for s = 1, screen.count() do
@@ -400,14 +400,16 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons } },
     { rule_any = { class = {"MPlayer", "pinentry", "Gimp"} },
-	properties = { floating = true } },
+	    properties = { floating = true } },
     -- set tweetdeck to always map to the twitter tag
     { rule = { instance = "tweetdeck.com" },
-    	properties = { tag = tags[1][2] } },
+      properties = { tag = tags[1][2] } },
     { rule = { class = "Steam" },
-    	properties = { tag = tags[1][8] } },
+      properties = { tag = tags[1][8] } },
     { rule = { class = "Plex" },
-    	properties = { tag = tags[1][9] } }
+      properties = { tag = tags[1][9] } },
+    { rule = { name = "PlayOnLinux" },
+      properties = { tag = tags[1][8] } }
 }
 -- }}}
 

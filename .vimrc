@@ -247,7 +247,7 @@ let g:session_directory = '~/.vimsessions'
 let g:session_persist_globals = ['&makeprg']
 let g:session_menu = 0
 
-let g:ctrlp_custom_ignore = '\v[\/](build|\.(git|hg|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build)$'
 
 call pathogen#infect()
 
