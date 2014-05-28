@@ -30,12 +30,6 @@ set guioptions-=T
 set wildmenu
 set wildmode=list:longest,full
 
-set laststatus=2
-set statusline=%n\ %<%F%h%m%r%h%w\ %y\ %{&ff}\ %{strftime(\"%d/%m/%Y\")}\ %{strftime(\"%H:%M\")}%=\ col:%c%V\ pos:%o\ line:%l/%L\ %P
-au insertenter * hi statusline term=reverse ctermfg='red' gui=undercurl guisp=Magenta
-au insertleave * hi statusline term=reverse ctermfg='green' gui=bold,reverse
-hi statusline term=reverse ctermfg='green' 
-
 " Default to make for make
 set makeprg=make
 
@@ -232,16 +226,12 @@ endfunction
 
 " Perform git grep, open a mini-window
 function! GitGrep(word, args)
-  let grepprg_bak=&grepprg
-  let prg="git grep -n"
+  let pattern="\"" . a:args . "\""
   if a:word
-    let prg=prg . " -w"
+    let pattern="-w " . pattern
   endif
-  let &grepprg=prg
-  exec "silent! grep! \"" . a:args . "\""
-  botright copen
-  let &grepprg=grepprg_bak
-  exec "redraw!"
+
+  exec "Ggrep " . pattern 
 endfunction
 
 command! -nargs=? G call GitGrep(0, <q-args>)
@@ -260,6 +250,15 @@ let g:session_menu = 0
 let g:ctrlp_custom_ignore = '\v[\/](build|\.(git|hg|svn))$'
 
 call pathogen#infect()
+
+" allow fugitive's git grep to open quickfix
+autocmd QuickFixCmdPost *grep* cwindow
+
+set laststatus=2
+set statusline=%n\ %{fugitive#statusline()}\ %<%F%h%m%r%h%w\ %y\ %{&ff}\ %{strftime(\"%d/%m/%Y\")}\ %{strftime(\"%H:%M\")}%=\ col:%c%V\ pos:%o\ line:%l/%L\ %P
+au insertenter * hi statusline term=reverse ctermfg='red' gui=undercurl guisp=Magenta
+au insertleave * hi statusline term=reverse ctermfg='green' gui=bold,reverse
+hi statusline term=reverse ctermfg='green' 
 
 set t_Co=256
 set background=dark
