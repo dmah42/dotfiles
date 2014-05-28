@@ -224,7 +224,7 @@ function! GetVisual() range
   return selection
 endfunction
 
-" Perform git grep, open a mini-window
+" Perform git grep
 function! GitGrep(word, args)
   let pattern="\"" . a:args . "\""
   if a:word
