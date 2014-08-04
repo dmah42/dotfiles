@@ -314,7 +314,11 @@ ${color slate grey}/ ${alignr}${color }${fs_free /} / ${fs_size /}
 ${fs_bar 3,180 /}
 
 ${color slate grey}NET
-${color slate grey}Up ${alignr}${color }${upspeed eth0}${color}
-${upspeedgraph eth0 20,180 666666 ffffff}
-${color slate grey}Down ${alignr}${color }${downspeed eth0}${color}
-${downspeedgraph eth0 20,180 666666 ffffff}
+${color slate grey}Up [lan] ${alignr}${color }${upspeed eth0}${color}
+${upspeedgraph eth0 10,180 666666 ffffff}
+${color slate grey}Down [lan] ${alignr}${color }${downspeed eth0}${color}
+${downspeedgraph eth0 10,180 666666 ffffff}
+${color slate grey}Up [wlan] ${alignr}${color }${upspeed wlan0}${color}
+${upspeedgraph wlan0 10,180 666666 ffffff}
+${color slate grey}Down [wlan] ${alignr}${color }${downspeed wlan0}${color}
+${downspeedgraph wlan0 10,180 666666 ffffff}
