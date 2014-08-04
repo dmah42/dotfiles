@@ -15,6 +15,8 @@ filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
 
+filetype on
+filetype plugin on
 filetype plugin indent on
 syntax on
 
@@ -31,17 +33,19 @@ set wildmenu
 set wildmode=list:longest,full
 
 " Default to make for make
-set makeprg=make
+set makeprg=make\ -j
 
-setlocal et tabstop=2 shiftwidth=2 softtabstop=2
+set et
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
-au filetype dart setlocal makeprg=dartanalyzer\ %\ 2>&1\ \\\|\ sed\ 's/file://'
-au filetype c,go setlocal noet tabstop=8 shiftwidth=8 softtabstop=8
-au filetype cpp setlocal et tabstop=2 shiftwidth=2 softtabstop=2
-au filetype go setlocal textwidth=0
-au filetype c,cpp,js,dart setlocal textwidth=80
-au filetype c,cpp,js,dart call HighlightTooLongLines()
-au filetype c,cpp call HighlightWhitespace()
+" Set extra colors here so new colorschemes don't override them.
+au colorscheme * highlight def link RightMargin Error
+au colorscheme * highlight def link ExtraWhitespace Question
+
+au bufwinenter * call HighlightTooLongLines()
+au bufwinenter * call HighlightTrailingWhitespace()
 
 " tab/shift-tab in visual mode handles indent
 vmap <Tab> >gv
@@ -64,8 +68,8 @@ nnoremap <leader>c :bp\|bd #<CR>
 map <C-w>gf <C-w><C-f>
 
 " map clang-format
-map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
-imap <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.4.py<CR>
+map <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>
+imap <C-f> :pyf /usr/share/vim/addons/syntax/clang-format-3.5.py<CR>
 
 " map shift-I in visual to act like visualextra
 vnoremap <expr> I mode() ==# 'V' ? "\<C-v>0I" : "I"
@@ -81,17 +85,21 @@ hi colorcolumn guibg=#200000
 " if editing .vimrc source it on write
 autocmd bufwritepost .vimrc source %
 autocmd bufwritepost vimwiki/*.wiki execute 'Vimwiki2HTML'
-
+  
+" highlight too long lines based on textwidth
 function! HighlightTooLongLines()
-  highlight def link RightMargin Error
-  if &textwidth != 0
-    exec 'match RightMargin /\%>' . &textwidth . 'v.\+/'
+  if !exists('b:noTooLongLines')
+    if &textwidth != 0
+      exec 'match RightMargin /\%>' . &textwidth . 'v.\+/'
+    endif
   endif
 endfunction
 
-function! HighlightWhitespace()
-	highlight def link ExtraWhitespace Question
-	exec 'match ExtraWhitespace /\s\+$\| \+\ze\t/'
+" highlight trailing whitespace
+function! HighlightTrailingWhitespace()
+  if !exists('b:noExtraWhitespace')
+    exec 'match ExtraWhitespace /\s\+$\| \+\ze\t/'
+  endif
 endfunction
 
 " new shell execute that pipes output to window
@@ -231,7 +239,7 @@ function! GitGrep(word, args)
     let pattern="-w " . pattern
   endif
 
-  exec "Ggrep " . pattern 
+  exec "Ggrep " . pattern
 endfunction
 
 command! -nargs=? G call GitGrep(0, <q-args>)
@@ -247,7 +255,7 @@ let g:session_directory = '~/.vimsessions'
 let g:session_persist_globals = ['&makeprg']
 let g:session_menu = 0
 
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist)$'
 
 call pathogen#infect()
 
