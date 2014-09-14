@@ -14,7 +14,12 @@ servers = (
     chatnet = "QuakeNet";
     port = "6667";
   },
-  { address = "irc.oftc.net"; chatnet = "OFTC"; port = "6667"; },
+  {
+    address = "irc.oftc.net";
+    chatnet = "OFTC";
+    port = "6667";
+    autoconnect = "yes";
+  },
   {
     address = "irc.gamesurge.net";
     chatnet = "GameSurge";
@@ -74,11 +79,14 @@ chatnets = {
     max_msgs = "3";
     max_whois = "30";
   };
-  OFTC = { 
+  OFTC = {
     type = "IRC";
     max_kicks = "1";
     max_msgs = "3";
     max_whois = "30";
+    nick = "dma";
+    username = "dma";
+    realname = "Dominic Hamon";
   };
   GameSurge = {
     type = "IRC";
