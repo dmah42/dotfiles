@@ -14,12 +14,13 @@ servers = (
     chatnet = "QuakeNet";
     port = "6667";
   },
-  { address = "irc.oftc.net"; chatnet = "OFTC"; port = "6667"; },
   {
-    address = "irc.gamesurge.net";
-    chatnet = "GameSurge";
+    address = "irc.oftc.net";
+    chatnet = "OFTC";
     port = "6667";
+    autoconnect = "yes"
   },
+  { address = "irc.gamesurge.net"; chatnet = "GameSurge"; port = "6667"; },
   { address = "irc.webchat.org"; chatnet = "WebChat"; port = "6667"; },
   { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
@@ -39,6 +40,7 @@ servers = (
     use_ssl = "no";
     ssl_verify = "no";
     autoconnect = "yes";
+    nick = "dhamon";
   }
 );
 
@@ -113,7 +115,6 @@ chatnets = {
     username = "dhamon";
     realname = "Dominic Hamon";
   };
-  nickserv = { type = "IRC"; autosendcmd = "/msg"; };
 };
 
 channels = (
@@ -122,7 +123,7 @@ channels = (
   { name = "#haplessvictims"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#drinkingdragons"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
-  { name = "#mesos"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#mesos"; chatnet = "freenode"; autojoin = "yes"; },
 );
 
 aliases = {
@@ -294,7 +295,12 @@ statusbar = {
   };
 };
 settings = {
-  core = { real_name = "dominic"; user_name = "dominic"; nick = "mrdo"; };
+  core = {
+    real_name = "dominic";
+    user_name = "dominic";
+    nick = "mrdo";
+    timestamp_format = "%H:%M:%S";
+  };
   "fe-text" = { actlist_sort = "refnum"; };
   "fe-common/core" = { print_active_channel = "yes"; theme = "tzu"; };
   "perl/core/scripts" = {
