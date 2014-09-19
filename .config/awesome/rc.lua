@@ -78,8 +78,8 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {
-	names =  { "1. personal", "2. irc",   "3. dev.mrdo", "4. dev.dartbox2d", "5. dev.benchmark", "6. dev.mesos", "7. dev.sleepybird", "8. games", 9 },
-	layout = { layouts[2],    layouts[2], layouts[2],    layouts[2],         layouts[2],         layouts[2],     layouts[2],          layouts[1], layouts[10] }
+	names =  { "1. personal", "2. irc",   "3. dev.mrdo", "4. dev.echoooes", "5. dev.dartbox2d", "6. dev.benchmark", "7. dev.gozer", "8. dev.sleepybird", "9. games", 0, "[", "]" },
+	layout = { layouts[10],    layouts[10], layouts[2],    layouts[2],         layouts[2],         layouts[2],     layouts[2],          layouts[1], layouts[10], layouts[10], layouts[10], layouts[10] }
 }
 
 for s = 1, screen.count() do
@@ -93,7 +93,8 @@ end
 myawesomemenu = {
    { "manual", terminal .. " -e man awesome" },
    { "edit config", editor .. " " .. awesome.conffile },
-   { "lock", "gnome-screensaver-command --lock" },
+   { "blank", "xscreensaver-command --activate" },
+   { "lock", "xscreensaver-command --lock" },
    { "restart", awesome.restart },
    { "logout", awesome.quit }
 }
@@ -110,9 +111,9 @@ mymainmenu = awful.menu({
 	items = {
 		{ "awesome", myawesomemenu, beautiful.awesome_icon },
 		{ "applications", myappmenu },
-                { "Debian", debian.menu.Debian_menu.Debian },
-		{ "wallpaper", beautiful.random_wallpaper }
-        }
+    { "Debian", debian.menu.Debian_menu.Debian },
+    { "wallpaper", beautiful.random_wallpaper }
+  }
 })
 
 mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
@@ -318,7 +319,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey },            "i", function () awful.util.spawn(terminal .. " -e irssi") end),
     awful.key({ modkey },            "t", function () awful.util.spawn(terminal) end),
     awful.key({ modkey },            "v", function () awful.util.spawn(editor) end),
-    awful.key({ modkey },            "x", function () awful.util.spawn("gnome-screensaver-command --lock") end)
+    awful.key({ modkey },            "x", function () awful.util.spawn("xscreensaver-command --activate") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -342,10 +343,10 @@ clientkeys = awful.util.table.join(
         end)
 )
 
--- Compute the maximum number of digit we need, limited to 9
+-- Compute the maximum number of digit we need, limited to 13
 keynumber = 0
 for s = 1, screen.count() do
-   keynumber = math.min(9, math.max(#tags[s], keynumber));
+   keynumber = math.min(13, math.max(#tags[s], keynumber));
 end
 
 -- Bind all key numbers to tags.
@@ -405,11 +406,11 @@ awful.rules.rules = {
     { rule = { instance = "tweetdeck.com" },
       properties = { tag = tags[1][2] } },
     { rule = { class = "Steam" },
-      properties = { tag = tags[1][8] } },
-    { rule = { class = "Plex" },
       properties = { tag = tags[1][9] } },
+    { rule = { class = "Plex" },
+      properties = { tag = tags[1][0] } },
     { rule = { name = "PlayOnLinux" },
-      properties = { tag = tags[1][8] } }
+      properties = { tag = tags[1][9] } }
 }
 -- }}}
 
@@ -455,10 +456,11 @@ function run_once(cmd)
 	awful.util.spawn_with_shell("pgrep -u $USER -x " .. findme .. " > /dev/null || (sleep 5 && " .. cmd .. ")")
 end
 
-run_once("xmodmap /home/dominic/.Xmodmap")
 run_once("xbindkeys")
+run_once("xmodmap /home/dominic/.Xmodmap")
 run_once("gnome-settings-daemon")
-run_once("gnome-screensaver")
+run_once("xscreensaver -no-splash")
+run_once(beautiful.random_wallpaper)
 run_once("conky")
 run_once("steam")
 -- }}}
