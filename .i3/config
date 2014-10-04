@@ -155,4 +155,5 @@ bar {
         status_command i3status
 }
 
+exec --no-status-id gnome-settings-daemon
 exec --no-status-id xscreensaver
