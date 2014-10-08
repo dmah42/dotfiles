@@ -20,7 +20,11 @@ servers = (
     port = "6667";
     autoconnect = "yes";
   },
-  { address = "irc.gamesurge.net"; chatnet = "GameSurge"; port = "6667"; },
+  {
+    address = "irc.gamesurge.net";
+    chatnet = "GameSurge";
+    port = "6667";
+  },
   { address = "irc.webchat.org"; chatnet = "WebChat"; port = "6667"; },
   { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
@@ -126,7 +130,7 @@ channels = (
   { name = "#haplessvictims"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#drinkingdragons"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
-  { name = "#mesos"; chatnet = "freenode"; autojoin = "yes"; },
+  { name = "#mesos"; chatnet = "freenode"; autojoin = "yes"; }
 );
 
 aliases = {
