@@ -18,7 +18,7 @@
 	deltaBaseCacheLimit = 1G
 [diff]
 	external = gitvimdiff
-	renames = true
+  #renames = true
 [pager]
 	diff =
 [push]
