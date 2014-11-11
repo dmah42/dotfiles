@@ -257,6 +257,8 @@ let g:session_menu = 0
 
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist)$'
 
+let g:session_autoload = 'no'
+
 call pathogen#infect()
 
 " allow fugitive's git grep to open quickfix
