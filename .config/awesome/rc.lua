@@ -457,7 +457,6 @@ function run_once(cmd)
 end
 
 run_once("xbindkeys")
-run_once("xmodmap /home/dominic/.Xmodmap")
 run_once("gnome-settings-daemon")
 run_once("xscreensaver -no-splash")
 run_once(beautiful.random_wallpaper)
