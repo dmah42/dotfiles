@@ -35,6 +35,10 @@ bindsym $mod+v exec "i3-sensible-terminal -e vim"
 
 # start dmenu (a program launcher)
 bindsym $mod+e exec dmenu_run
+
+# start chrome
+bindsym $mod+c exec chromium-browser
+
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -159,4 +163,5 @@ bar {
 exec gnome-settings-daemon
 exec xscreensaver
 exec nm-applet
+exec owncloud
 
