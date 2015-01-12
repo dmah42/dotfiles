@@ -257,7 +257,7 @@ let g:session_menu = 0
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist)$'
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist|.*\.pyc)$'
 
 call pathogen#infect()
 
