@@ -1,0 +1,19 @@
+#!/bin/bash
+
+PACKAGES=$*
+
+if [[ -z "$PACKAGES" ]]; then
+  echo "No packages specified"
+  exit
+fi
+
+echo "Installing $PACKAGES"
+pushd /var/cache/apt/archives
+echo "Getting uris"
+apt-get -y --print-uris install $PACKAGES > debs.list
+echo "Fetching `wc -l debs.list` packages"
+egrep -o -e "http://[^\']+" debs.list | xargs -l3 -P0 wget -nv
+echo "Installing"
+apt-get -y install $PACKAGES
+echo "Done"
+popd
