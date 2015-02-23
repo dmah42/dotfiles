@@ -19,6 +19,7 @@
 [diff]
 	external = gitvimdiff
   #renames = true
+  submodule = log
 [pager]
 	diff =
 [push]
@@ -30,4 +31,6 @@
 [log]
 	decorate = true
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/
+[status]
+  submodulesummary = 1
