@@ -254,10 +254,10 @@ let g:ycm_key_list_previous_completion = ['<C-p>']
 let g:session_directory = '~/.vimsessions'
 let g:session_persist_globals = ['&makeprg']
 let g:session_menu = 0
-
-let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist)$'
-
+let g:session_autosave = 'no'
 let g:session_autoload = 'no'
+
+let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist|.*\.pyc)$'
 
 call pathogen#infect()
 
