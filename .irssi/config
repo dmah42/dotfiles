@@ -130,8 +130,8 @@ channels = (
   { name = "#haplessvictims"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#drinkingdragons"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
-  { name = "#mesos"; chatnet = "freenode"; autojoin = "yes"; },
-  { name = "#aurora"; chatnet = "freenode"; autojoin = "yes"; }
+  { name = "#mesos"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#aurora"; chatnet = "freenode"; autojoin = "no"; }
 );
 
 aliases = {
