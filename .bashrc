@@ -51,6 +51,7 @@ if ! shopt -oq posix; then
 fi
 
 export EDITOR="vim -f"
+export P4DIFF="vimdiff"
 
 export PATH=$PATH:~/bin
 export LSCOLORS=fxfxcxdxbxegedabagacad
