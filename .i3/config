@@ -164,6 +164,8 @@ bar {
         tray_output primary
 }
 
+for_window [class="UE4Editor" instance="UE4Editor"] floating enable
+
 # start some utilities
 exec gnome-settings-daemon
 exec xscreensaver
