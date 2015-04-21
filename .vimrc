@@ -259,6 +259,8 @@ let g:session_autoload = 'no'
 
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist|.*\.pyc)$'
 
+let g:NumberToggleTrigger = '<C-S-n>'
+
 call pathogen#infect()
 
 " allow fugitive's git grep to open quickfix
