@@ -131,7 +131,8 @@ channels = (
   { name = "#drinkingdragons"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
   { name = "#mesos"; chatnet = "freenode"; autojoin = "no"; },
-  { name = "#aurora"; chatnet = "freenode"; autojoin = "no"; }
+  { name = "#aurora"; chatnet = "freenode"; autojoin = "no"; },
+  { name = "#mapbox"; chatnet = "freenode"; autojoin = "no"; }
 );
 
 aliases = {
@@ -297,6 +298,13 @@ statusbar = {
       items = {
         barstart = { priority = "100"; };
         awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
+    awl_1 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_1 = { };
         barend = { priority = "100"; alignment = "right"; };
       };
     };
