@@ -265,6 +265,10 @@ let g:session_autoload = 'no'
 
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist|.*\.pyc)$'
 
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
 call pathogen#infect()
 
 " allow fugitive's git grep to open quickfix
