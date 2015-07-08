@@ -28,7 +28,7 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+Shift+apostrophe kill
+bindsym $mod+Shift+q kill
 
 # start an editor
 bindsym $mod+v exec "i3-sensible-terminal -e vim"
