@@ -24,7 +24,7 @@
 [pager]
 	diff =
 [push]
-	default = simple
+  # default = simple
 [format]
 	pretty = oneline
 [user]
