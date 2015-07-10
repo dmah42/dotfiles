@@ -267,6 +267,10 @@ let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist|.*\.pyc
 
 let g:NumberToggleTrigger = '<C-S-n>'
 
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
+
 call pathogen#infect()
 
 " allow fugitive's git grep to open quickfix
