@@ -23,6 +23,10 @@ syntax on
 set foldmethod=syntax
 set foldlevelstart=99
 
+" switch to manual folding on edit to avoid fold opening
+au insertenter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+au insertleave,winleave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
 set showcmd
 set so=10
 set modeline
@@ -39,6 +43,8 @@ set et
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+
+set clipboard=unnamedplus
 
 " Set extra colors here so new colorschemes don't override them.
 au colorscheme * highlight def link RightMargin Error
@@ -258,6 +264,16 @@ let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 
 let g:ctrlp_custom_ignore = '\v[\/](\.(git|hg|svn)|CMakeFiles|build|dist|.*\.pyc)$'
+
+let g:UltiSnipsExpandTrigger = "<c-j>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+
+let g:NumberToggleTrigger = '<C-S-n>'
+
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
 
 call pathogen#infect()
 
