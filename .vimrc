@@ -23,6 +23,10 @@ syntax on
 set foldmethod=syntax
 set foldlevelstart=99
 
+" switch to manual folding on edit to avoid fold opening
+au insertenter * if !exists('w:last_fdm') | let w:last_fdm=&foldmethod | setlocal foldmethod=manual | endif
+au insertleave,winleave * if exists('w:last_fdm') | let &l:foldmethod=w:last_fdm | unlet w:last_fdm | endif
+
 set showcmd
 set so=10
 set modeline
@@ -39,6 +43,8 @@ set et
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
+
+set clipboard=unnamedplus
 
 " Set extra colors here so new colorschemes don't override them.
 au colorscheme * highlight def link RightMargin Error
