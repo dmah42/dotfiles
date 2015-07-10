@@ -115,7 +115,7 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   Ubuntu = { type = "IRC"; };
-  perl = { type = "IRC"; nick = "mrdo"; };
+  perl = { type = "IRC"; nick = "dma"; };
   freenode = {
     type = "IRC";
     nick = "dhamon";
@@ -125,11 +125,11 @@ chatnets = {
 };
 
 channels = (
-  { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; },
+  { name = "#irssi"; chatnet = "ircnet"; autojoin = "no"; },
+  { name = "silc"; chatnet = "silc"; autojoin = "no"; },
   { name = "#haplessvictims"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#drinkingdragons"; chatnet = "perl"; autojoin = "yes"; },
-  { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
+  { name = "#llvm"; chatnet = "OFTC"; autojoin = "no"; },
   { name = "#mesos"; chatnet = "freenode"; autojoin = "no"; },
   { name = "#aurora"; chatnet = "freenode"; autojoin = "no"; }
 );
