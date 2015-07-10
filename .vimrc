@@ -269,6 +269,12 @@ let g:UltiSnipsExpandTrigger = "<c-j>"
 let g:UltiSnipsJumpForwardTrigger = "<c-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
+let g:NumberToggleTrigger = '<C-S-n>'
+
+let g:buftabline_numbers = 1
+let g:buftabline_indicators = 1
+let g:buftabline_separators = 1
+
 call pathogen#infect()
 
 " allow fugitive's git grep to open quickfix
