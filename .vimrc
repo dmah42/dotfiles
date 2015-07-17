@@ -248,6 +248,8 @@ function! GitGrep(word, args)
   exec "Ggrep " . pattern
 endfunction
 
+nmap <leader>b :ls<CR>:b<SPACE>
+
 command! -nargs=? G call GitGrep(0, <q-args>)
 nmap <C-x>* :call GitGrep(1, "<cword>")<CR>
 vmap <C-x>/ :call GitGrep(0, GetVisual())<CR>
