@@ -34,6 +34,3 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips
-[submodule ".vim/bundle/ondemandhighlight"]
-	path = .vim/bundle/ondemandhighlight
-	url = git@github.com:akesling/ondemandhighlight
