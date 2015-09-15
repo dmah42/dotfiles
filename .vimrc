@@ -280,6 +280,7 @@ let g:buftabline_separators = 1
 call pathogen#infect()
 
 call gf_ext#add_handler('\.jpg$', "!xdg-open")
+call gf_ext#add_handler('\.jpeg$', "!xdg-open")
 call gf_ext#add_handler('\.gif$', "!xdg-open")
 
 " allow fugitive's git grep to open quickfix
