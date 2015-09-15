@@ -34,3 +34,6 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips
+[submodule ".vim/bundle/gf-ext"]
+	path = .vim/bundle/gf-ext
+	url = git://github.com/dpwright/vim-gf-ext
