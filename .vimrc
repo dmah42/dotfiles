@@ -46,6 +46,8 @@ set softtabstop=2
 
 set clipboard=unnamedplus
 
+set list listchars=tab:»·,trail:·
+
 " Set extra colors here so new colorschemes don't override them.
 au colorscheme * highlight def link RightMargin Error
 au colorscheme * highlight def link ExtraWhitespace Question
