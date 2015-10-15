@@ -37,3 +37,6 @@
 [submodule ".vim/bundle/gf-ext"]
 	path = .vim/bundle/gf-ext
 	url = git://github.com/dpwright/vim-gf-ext
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
