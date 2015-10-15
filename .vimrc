@@ -283,7 +283,6 @@ call pathogen#infect()
 autocmd QuickFixCmdPost *grep* cwindow
 
 set laststatus=2
-set statusline=%n\ %{fugitive#statusline()}\ %<%F%h%m%r%h%w\ %y\ %{&ff}\ %{strftime(\"%d/%m/%Y\")}\ %{strftime(\"%H:%M\")}%=\ col:%c%V\ pos:%o\ line:%l/%L\ %P
 
 set t_Co=256
 set background=dark
