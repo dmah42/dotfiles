@@ -277,6 +277,12 @@ let g:buftabline_numbers = 1
 let g:buftabline_indicators = 1
 let g:buftabline_separators = 1
 
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
+
+let g:go_fmt_command = "goimports"
+
 call pathogen#infect()
 
 " allow fugitive's git grep to open quickfix
@@ -296,8 +302,13 @@ if &diff
 endif
 au filetype wiki colorscheme koehler
 
+set colorcolumn=+1,+2
+
 " transparent bg
 highlight! Normal ctermbg=none
+
+" subtle (ish) color column
+highlight! ColorColumn ctermbg=52
 
 " better diff colors
 highlight! DiffAdd cterm=bold ctermfg=17 ctermbg=2 gui=none guifg=bg guibg=Green
