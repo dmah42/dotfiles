@@ -46,6 +46,8 @@ set softtabstop=2
 
 set clipboard=unnamedplus
 
+set list listchars=tab:»·,trail:·
+
 " Set extra colors here so new colorschemes don't override them.
 au colorscheme * highlight def link RightMargin Error
 au colorscheme * highlight def link ExtraWhitespace Question
@@ -273,9 +275,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 
 let g:NumberToggleTrigger = '<C-S-n>'
 
-let g:buftabline_numbers = 1
-let g:buftabline_indicators = 1
-let g:buftabline_separators = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'bubblegum'
 
 au FileType go nmap <leader>gb <Plug>(go-build)
 au FileType go nmap <leader>gt <Plug>(go-test)
@@ -289,10 +290,6 @@ call pathogen#infect()
 autocmd QuickFixCmdPost *grep* cwindow
 
 set laststatus=2
-set statusline=%n\ %{fugitive#statusline()}\ %<%F%h%m%r%h%w\ %y\ %{&ff}\ %{strftime(\"%d/%m/%Y\")}\ %{strftime(\"%H:%M\")}%=\ col:%c%V\ pos:%o\ line:%l/%L\ %P
-au insertenter * hi statusline term=reverse ctermfg='red' gui=undercurl guisp=Magenta
-au insertleave * hi statusline term=reverse ctermfg='green' gui=bold,reverse
-hi statusline term=reverse ctermfg='green' 
 
 set t_Co=256
 set background=dark
