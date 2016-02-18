@@ -276,6 +276,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
 let g:NumberToggleTrigger = '<C-S-n>'
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'bubblegum'
 
 call pathogen#infect()
 
