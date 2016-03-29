@@ -28,12 +28,15 @@
 [submodule ".vim/bundle/vim-numbertoggle"]
 	path = .vim/bundle/vim-numbertoggle
 	url = git://github.com/jeffkreeftmeijer/vim-numbertoggle.git
-[submodule ".vim/bundle/vim-buftabline"]
-	path = .vim/bundle/vim-buftabline
-	url = git@github.com:ap/vim-buftabline
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = git@github.com:SirVer/ultisnips
-[submodule ".vim/bundle/ondemandhighlight"]
-	path = .vim/bundle/ondemandhighlight
-	url = git@github.com:akesling/ondemandhighlight
+[submodule ".vim/bundle/gf-ext"]
+	path = .vim/bundle/gf-ext
+	url = git://github.com/dpwright/vim-gf-ext
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline
+[submodule ".vim/bundle/ag.vim"]
+	path = .vim/bundle/ag.vim
+	url = https://github.com/rking/ag.vim.git
