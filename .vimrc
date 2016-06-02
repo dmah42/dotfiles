@@ -14,6 +14,7 @@ set backspace=eol,indent,start
 filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
+set runtimepath+=~/.fzf
 
 filetype on
 filetype plugin on
