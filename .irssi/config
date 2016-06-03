@@ -301,13 +301,6 @@ statusbar = {
         barend = { priority = "100"; alignment = "right"; };
       };
     };
-    awl_1 = {
-      items = {
-        barstart = { priority = "100"; };
-        awl_1 = { };
-        barend = { priority = "100"; alignment = "right"; };
-      };
-    };
   };
 };
 settings = {
@@ -327,3 +320,4 @@ settings = {
   };
 };
 ignores = ( { level = "JOINS PARTS QUITS"; channels = ( "#mesos" ); } );
+conversions = { "#haplessvictims" = "utf-8"; };
