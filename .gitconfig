@@ -5,7 +5,8 @@
 [alias]
 	st = status
 	co = checkout
-	br = branch
+  br = branch
+  cr = codereview
 	svn-diff = !git-svn-diff.sh
 [merge]
 	tool = gvimdiff
@@ -35,3 +36,5 @@
   insteadOf = https://github.com/
 [status]
   submodulesummary = 1
+[http]
+	cookiefile = /home/dominic/.gitcookies
