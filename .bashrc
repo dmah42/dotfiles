@@ -2,9 +2,18 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+PROMPT_COMMAND=set_prompt
 
-PS1="\[\033[38m\]\h:\[\033[01;34m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
-PS1="\[\033[38m\]\h:\[\e[38;05;38m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
+function set_prompt {
+  local CMDERROR=$?
+  if [ "$CMDERROR" -eq "0" ]; then
+    local STATUS="\[\e[1;32m\]PASS\[\e[0m\]"
+  else
+    local STATUS="\[\e[1;31m\]FAIL [$CMDERROR]\[\e[0m\]"
+  fi
+
+  PS1="${STATUS}\n\[\033[38m\]\h:\[\e[38;05;38m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
+}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -38,6 +47,8 @@ alias :q=exit
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+export GIT_PS1_SHOWDIRTYSTATE=1
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
