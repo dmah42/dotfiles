@@ -7,7 +7,7 @@ PROMPT_COMMAND=set_prompt
 function set_prompt {
   local CMDERROR=$?
   if [ "$CMDERROR" -eq "0" ]; then
-    local STATUS="\[\e[1;32m\]PASS\[\e[0m\]"
+    local STATUS="\[\e[0;32m\]PASS\[\e[0m\]"
   else
     local STATUS="\[\e[1;31m\]FAIL [$CMDERROR]\[\e[0m\]"
   fi
