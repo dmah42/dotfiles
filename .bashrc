@@ -7,9 +7,9 @@ PROMPT_COMMAND=set_prompt
 function set_prompt {
   local CMDERROR=$?
   if [ "$CMDERROR" -eq "0" ]; then
-    local STATUS="\[\e[0;32m\]PASS\[\e[0m\]"
+    local STATUS="\[\e[0;32m\]SUCCESS\[\e[0m\]"
   else
-    local STATUS="\[\e[1;31m\]FAIL [$CMDERROR]\[\e[0m\]"
+    local STATUS="\[\e[1;31m\]FAILURE [$CMDERROR]\[\e[0m\]"
   fi
 
   PS1="${STATUS}\n\[\033[38m\]\h:\[\e[38;05;38m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
