@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
+[submodule "Gdbinit"]
+	path = Gdbinit
+	url = https://github.com/gdbinit/Gdbinit.git
