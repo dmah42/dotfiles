@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/ag.vim"]
 	path = .vim/bundle/ag.vim
 	url = https://github.com/rking/ag.vim.git
+[submodule ".vim/bundle/vim-ft-bzl"]
+	path = .vim/bundle/vim-ft-bzl
+	url = https://github.com/google/vim-ft-bzl
