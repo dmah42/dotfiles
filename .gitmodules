@@ -46,3 +46,6 @@
 [submodule ".vim/bundle/vim-ft-bzl"]
 	path = .vim/bundle/vim-ft-bzl
 	url = https://github.com/google/vim-ft-bzl
+[submodule ".vim/bundle/rust.vim"]
+	path = .vim/bundle/rust.vim
+	url = https://github.com/rust-lang/rust.vim
