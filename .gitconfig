@@ -38,3 +38,5 @@
   submodulesummary = 1
 [http]
 	cookiefile = /home/dominic/.gitcookies
+[push]
+	default = simple
