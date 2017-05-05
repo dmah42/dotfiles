@@ -37,7 +37,7 @@ bindsym $mod+v exec "i3-sensible-terminal -e vim"
 bindsym $mod+e exec dmenu_run
 
 # start chrome
-bindsym $mod+c exec chromium-browser
+bindsym $mod+c exec google-chrome
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -131,7 +131,7 @@ bindsym $mod+Shift+p restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # lock the screen
-bindsym $mod+l exec "xscreensaver-command --activate"
+bindsym $mod+l exec "i3lock -c 3F3F3F"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -172,6 +172,5 @@ for_window [class="UE4Editor" instance="UE4Editor"] floating enable
 # start some utilities
 exec gnome-settings-daemon
 exec xscreensaver
-exec owncloud
 exec nm-applet
-
+exec --no-startup-id feh --bg-scale ~/Pictures/best-wallpaper-11.jpg
