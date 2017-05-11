@@ -171,7 +171,5 @@ for_window [class="UE4Editor" instance="UE4Editor"] floating enable
 
 # start some utilities
 exec gnome-settings-daemon
-exec xscreensaver
-exec owncloud
 exec nm-applet
 

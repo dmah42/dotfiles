@@ -1,7 +1,8 @@
 [color]
 	ui = auto
 [user]
-	name = Dominic Hamon
+  name = Dominic Hamon
+  email = dma+github@stripysock.com
 [alias]
 	st = status
 	co = checkout

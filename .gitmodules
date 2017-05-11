@@ -49,3 +49,15 @@
 [submodule ".vim/bundle/rust.vim"]
 	path = .vim/bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim
+[submodule "Gdbinit"]
+	path = Gdbinit
+	url = https://github.com/gdbinit/Gdbinit.git
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim
+[submodule ".vim/bundle/tsuquyomi"]
+	path = .vim/bundle/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi
+[submodule ".vim/bundle/vimproc"]
+	path = .vim/bundle/vimproc
+	url = https://github.com/Shougo/vimproc.vim
