@@ -111,3 +111,14 @@ else
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Taking notes!
+notes() {
+  if [ ! -z "$1" ]; then
+    # Place whatever in the file directly
+    echo "$@" >> "$HOME/notes.md"
+  else
+    # Take from STDIN
+    cat - >> "$HOME/notes.md"
+  fi
+}
