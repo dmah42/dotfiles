@@ -1,7 +1,8 @@
 [color]
 	ui = auto
 [user]
-	name = Dominic Hamon
+  name = Dominic Hamon
+  email = dma+github@stripysock.com
 [alias]
 	st = status
 	co = checkout
@@ -38,3 +39,5 @@
   submodulesummary = 1
 [http]
 	cookiefile = /home/dominic/.gitcookies
+[push]
+	default = simple

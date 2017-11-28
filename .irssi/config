@@ -129,7 +129,8 @@ channels = (
   { name = "silc"; chatnet = "silc"; autojoin = "no"; },
   { name = "#haplessvictims"; chatnet = "perl"; autojoin = "yes"; },
   { name = "#drinkingdragons"; chatnet = "perl"; autojoin = "yes"; },
-  { name = "#llvm"; chatnet = "OFTC"; autojoin = "no"; },
+  { name = "#llvm"; chatnet = "OFTC"; autojoin = "yes"; },
+  { name = "#googlebenchmark"; chatnet = "freenode"; autojoin = "yes"; },
   { name = "#mesos"; chatnet = "freenode"; autojoin = "no"; },
   { name = "#aurora"; chatnet = "freenode"; autojoin = "no"; },
   { name = "#mapbox"; chatnet = "freenode"; autojoin = "no"; }

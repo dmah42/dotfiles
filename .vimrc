@@ -286,6 +286,7 @@ au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap <leader>gc <Plug>(go-coverage)
 
 let g:go_fmt_command = "goimports"
+let g:rustfmt_autosave = 1
 
 call pathogen#infect()
 
