@@ -279,6 +279,8 @@ let g:NumberToggleTrigger = '<C-S-n>'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme = 'bubblegum'
 
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+
 au FileType go nmap <leader>gb <Plug>(go-build)
 au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap <leader>gc <Plug>(go-coverage)
