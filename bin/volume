@@ -26,16 +26,18 @@ if [[ $1 == "mute" ]]; then
 	pactl set-sink-mute 0 $MUTE
 	echo $MUTE > ~/.pulse/mute
 else
-	if [[ $1 == "inc" ]]; then
+	if [[ $1 == "up" ]]; then
 		CURVOL=$(($CURVOL + $VOLDELTA))
 		if [[ $CURVOL -ge 65536 ]]; then
 			CURVOL=65536
 		fi
-	elif [[ $1 == "dec" ]]; then
+	elif [[ $1 == "down" ]]; then
 		CURVOL=$(($CURVOL - $VOLDELTA))
 		if [[ $CURVOL -le 0 ]]; then
 			CURVOL=0
 		fi
+  else
+    exit
 	fi
 	pactl set-sink-volume 0 $CURVOL
 	echo $CURVOL > ~/.pulse/volume
@@ -44,4 +46,4 @@ else
 	echo 0 > ~/.pulse/mute
 fi
 
-paplay /usr/share/sounds/ubuntu/stereo/message.ogg
+paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
