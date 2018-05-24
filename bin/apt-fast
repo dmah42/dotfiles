@@ -10,10 +10,10 @@ fi
 echo "Installing $PACKAGES"
 pushd /var/cache/apt/archives
 echo "Getting uris"
-apt-get -y --print-uris install $PACKAGES > debs.list
+apt -y --print-uris install $PACKAGES > debs.list
 echo "Fetching `wc -l debs.list` packages"
 egrep -o -e "http://[^\']+" debs.list | xargs -l5 -P3 wget --progress=dot -c
 echo "Installing"
-apt-get -y install $PACKAGES
+apt -y install $PACKAGES
 echo "Done"
 popd

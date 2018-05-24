@@ -1,37 +1,62 @@
 #!/bin/bash
 
-mkdir -p ~/.pulse
-
-ls ~/.pulse/volume &> /dev/null
-if [[ $? != 0 ]]
-then
-	echo "65536" > ~/.pulse/volume
-fi
-
-CURVOL=$(cat ~/.pulse/volume)
-VOLDELTA=6535
-
-if [[ $1 == "mute" ]]; then
-	pactl set-sink-mute 0 toggle
+if [ -x "$(command -v amixer)" ]; then
+    echo "Using amixer"
+    if [ "X$1" = "Xup" ]; then
+        amixer -q set Master 2dB+ unmute
+    elif [ "X$1" = "Xdown" ]; then
+        amixer -q set Master 2dB- unmute
+    else
+        echo "Usage: vol <up|down>"
+        exit 1
+    fi
 else
-	if [[ $1 == "up" ]]; then
-		CURVOL=$(($CURVOL + $VOLDELTA))
-		if [[ $CURVOL -ge 65536 ]]; then
-			CURVOL=65536
-		fi
-	elif [[ $1 == "down" ]]; then
-		CURVOL=$(($CURVOL - $VOLDELTA))
-		if [[ $CURVOL -le 0 ]]; then
-			CURVOL=0
-		fi
-  else
-    exit
-	fi
-	pactl set-sink-volume 0 $CURVOL
-	echo $CURVOL > ~/.pulse/volume
-	# unmute on volume key press
-	pactl set-sink-mute 0 0
-	echo 0 > ~/.pulse/mute
-fi
+    echo "Using pulse"
+    mkdir -p ~/.pulse
+    ls ~/.pulse/mute &> /dev/null
+    if [[ $? != 0 ]]; then
+        echo "Initialising mute"
+        echo "0" > ~/.pulse/mute
+    fi
 
-paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+    ls ~/.pulse/volume &> /dev/null
+    if [[ $? != 0 ]]; then
+        echo "Initialising volume"
+        echo "32786" > ~/.pulse/volume
+    fi
+
+    CURVOL=$(cat ~/.pulse/volume)
+    MUTE=$(cat ~/.pulse/mute)
+    VOLDELTA=6535
+
+    if [[ $1 == "mute" ]]; then
+        if [[ $MUTE -eq 0 ]]; then
+            echo "Muting"
+            MUTE=1
+        else
+            echo "Unmuting"
+            MUTE=0
+        fi
+        pactl set-sink-mute 0 $MUTE
+        echo $MUTE > ~/.pulse/mute
+    else
+        if [[ "X$1" == "Xup" ]]; then
+            CURVOL=$(($CURVOL + $VOLDELTA))
+            if [[ $CURVOL -ge 65535 ]]; then
+                CURVOL=65535
+            fi
+        elif [[ "X$1" == "Xdown" ]]; then
+            CURVOL=$(($CURVOL - $VOLDELTA))
+            if [[ $CURVOL -le 0 ]]; then
+                CURVOL=0
+            fi
+        fi
+        pactl set-sink-volume 0 $CURVOL
+        echo $CURVOL > ~/.pulse/volume
+        # unmute on volume key press
+        pactl set-sink-mute 0 0
+        echo 0 > ~/.pulse/mute
+    fi
+
+    paplay /usr/share/sounds/freedesktop/stereo/message.oga
+fi
