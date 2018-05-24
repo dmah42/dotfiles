@@ -4,15 +4,28 @@ HISTFILESIZE=2000
 
 PROMPT_COMMAND=set_prompt
 
+function timer_start {
+  TIMER=${TIMER:-$SECONDS}
+}
+
+function timer_stop {
+  TIMER_SHOW=$(($SECONDS - $TIMER))
+  unset TIMER
+}
+
+trap 'timer_start' DEBUG
+
 function set_prompt {
   local CMDERROR=$?
   if [ "$CMDERROR" -eq "0" ]; then
-    local STATUS="\[\e[0;32m\]SUCCESS\[\e[0m\]"
+    local STATUS="\[\e[1;32m\]SUCCESS\[\e[0m\]"
   else
     local STATUS="\[\e[1;31m\]FAILURE [$CMDERROR]\[\e[0m\]"
   fi
 
-  PS1="${STATUS}\n\[\033[38m\]\h:\[\e[38;05;38m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
+  timer_stop
+
+  PS1="${STATUS} in ${TIMER_SHOW}s\n\[\033[38m\]\h:\[\e[38;05;38m\]\$(pwd30)\[\033[32m\]\$(__git_ps1 ' [%s]')\[\033[37m\] $\[\033[00m\] "
 }
 
 # enable color support of ls and also add handy aliases
@@ -91,29 +104,6 @@ export LSCOLORS=fxfxcxdxbxegedabagacad
 
 # vim mode
 set -o vi
-
-# set up ssh-agent to simplify ssh forwarding
-SSH_ENV="$HOME/.ssh/environment"
-
-function start_agent {
-  echo "Initialising new SSH agent..."
-  /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-  chmod 600 "${SSH_ENV}"
-  . "${SSH_ENV}" > /dev/null
-  /usr/bin/ssh-add;
-}
-
-# Source SSH settings, if applicable
-
-if [ -f "${SSH_ENV}" ]; then
-  . "${SSH_ENV}" > /dev/null
-  #ps ${SSH_AGENT_PID} doesn't work under cywgin
-  ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-    start_agent;
-  }
-else
-  start_agent;
-fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
