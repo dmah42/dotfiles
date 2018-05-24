@@ -33,8 +33,6 @@
 	name = Dominic Hamon
 [log]
 	decorate = true
-[url "git@github.com:"]
-  insteadOf = https://github.com/
 [status]
   submodulesummary = 1
 [http]
