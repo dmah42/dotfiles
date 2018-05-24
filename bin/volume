@@ -1,11 +1,6 @@
 #!/bin/bash
 
 mkdir -p ~/.pulse
-ls ~/.pulse/mute &> /dev/null
-if [[ $? != 0 ]]
-then
-	echo "0" > ~/.pulse/mute
-fi
 
 ls ~/.pulse/volume &> /dev/null
 if [[ $? != 0 ]]
@@ -14,17 +9,10 @@ then
 fi
 
 CURVOL=$(cat ~/.pulse/volume)
-MUTE=$(cat ~/.pulse/mute)
 VOLDELTA=6535
 
 if [[ $1 == "mute" ]]; then
-	if [[ $MUTE -eq 0 ]]; then
-		MUTE=1
-	else
-		MUTE=0
-	fi
-	pactl set-sink-mute 0 $MUTE
-	echo $MUTE > ~/.pulse/mute
+	pactl set-sink-mute 0 toggle
 else
 	if [[ $1 == "up" ]]; then
 		CURVOL=$(($CURVOL + $VOLDELTA))
